@@ -7,7 +7,9 @@ class Array<Type = any> {
   }
   pop(): Type | undefined {
     this.length--;
-    return this[this.length];
+    const item = this[this.length];
+    delete this[this.length];
+    return item;
   }
   shift(): Type | undefined {
     const item = this[0];
