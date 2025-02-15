@@ -38,6 +38,16 @@ class LinkedList<Type = any> {
       node = node.next;
     }
   }
+  contains(value: Type): boolean {
+    let node = this.head;
+    while (node) {
+      if (node.value === value) {
+        return true;
+      }
+      node = node.next;
+    }
+    return false;
+  }
 }
 
 export default LinkedList;
