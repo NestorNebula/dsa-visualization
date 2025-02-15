@@ -2,8 +2,7 @@ import { describe, expect, it } from 'vitest';
 import Array from './array';
 
 describe('array', () => {
-  console.log(0);
-  const array = new Array();
+  const array: Array<string> = new Array();
   it('creates a new array', () => {
     expect(array.length).toBe(0);
     expect(array[0]).toBeUndefined();
