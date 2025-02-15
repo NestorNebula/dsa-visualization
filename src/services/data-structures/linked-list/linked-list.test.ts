@@ -29,4 +29,14 @@ describe('linked list', () => {
       expect(node).toBeUndefined();
     });
   });
+
+  describe('contains', () => {
+    it('returns true when node exists', () => {
+      expect(linkedList.contains('Tail node')).toBeTruthy();
+    });
+
+    it("returns false when node doesn't exist", () => {
+      expect(linkedList.contains('Not an existing node')).toBeFalsy();
+    });
+  });
 });
