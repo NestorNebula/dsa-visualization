@@ -75,8 +75,17 @@ class BinaryTree {
   }
   rebalance(): void {
     if (this.root) {
-      this.#balanceSubtree(this.root);
+      while (!this.#isBalanced(this.root)) {
+        this.#balanceSubtree(this.root);
+      }
     }
+  }
+  #isBalanced(node: Node): boolean {
+    const leftResult = node.left ? this.#isBalanced(node.left) : true;
+    const rightResult = node.right ? this.#isBalanced(node.right) : true;
+    const left = this.#findTreeHeight(node.left);
+    const right = this.#findTreeHeight(node.right);
+    return leftResult && rightResult && left - right <= 1 && left - right >= -1;
   }
   #balanceSubtree(
     subtree: Node,
