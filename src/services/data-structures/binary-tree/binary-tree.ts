@@ -85,77 +85,50 @@ class BinaryTree {
   ): void {
     if (subtree.left) this.#balanceSubtree(subtree.left, subtree, 'left');
     if (subtree.right) this.#balanceSubtree(subtree.right, subtree, 'right');
-    const leftSubtreeHeight = subtree.left
-      ? this.#findTreeHeight(subtree.left)
-      : 0;
-    const rightSubtreeHeight = subtree.right
-      ? this.#findTreeHeight(subtree.right)
-      : 0;
-    const diff = leftSubtreeHeight - rightSubtreeHeight;
+    let leftHeight = this.#findTreeHeight(subtree.left);
+    let rightHeight = this.#findTreeHeight(subtree.right);
+    let diff = leftHeight - rightHeight;
     if (diff <= 1 && diff >= -1) return;
-    if (diff > 1) {
-      const left = subtree.left!;
-      if (!left.right) {
-        if (previous) {
-          previous[previousDirection!] = left;
-          left.right = subtree;
-          subtree.left = null;
-        } else {
-          const oldRoot = this.root!;
-          oldRoot.left = null;
-          this.root = left;
-          left.right = oldRoot;
+    while (diff > 1 || diff < -1) {
+      let left = subtree.left;
+      let right = subtree.right;
+      if (diff > 1) {
+        while (left!.right) {
+          subtree.left = left!.right;
+          left!.right.left = left;
+          left!.right = null;
+          left = subtree.left;
         }
+        left!.right = subtree;
+        subtree.left = null;
+        subtree = left!;
+        left = subtree.left;
       } else {
-        if (previous) {
-          previous[previousDirection!] = left.right;
-          left.right = null;
-          previous[previousDirection!]!.left = left;
-          previous[previousDirection!]!.right = subtree;
-          subtree.left = null;
-        } else {
-          const oldRoot = this.root!;
-          oldRoot.left = null;
-          this.root = left.right;
-          left.right = null;
-          this.root.left = left;
-          this.root.right = oldRoot;
+        while (right!.left) {
+          subtree.right = right!.left;
+          right!.left.right = right;
+          right!.left = null;
+          right = subtree.right;
         }
+        right!.left = subtree;
+        subtree.right = null;
+        subtree = right!;
+        right = subtree.right;
       }
+      leftHeight = this.#findTreeHeight(subtree.left);
+      rightHeight = this.#findTreeHeight(subtree.right);
+      diff = leftHeight - rightHeight;
+    }
+    if (previous) {
+      previous[previousDirection!] = subtree;
     } else {
-      const right = subtree.right!;
-      if (!right.left) {
-        if (previous) {
-          previous[previousDirection!] = right;
-          right.left = subtree;
-          subtree.right = null;
-        } else {
-          const oldRoot = this.root!;
-          oldRoot.right = null;
-          this.root = right;
-          right.left = oldRoot;
-        }
-      } else {
-        if (previous) {
-          previous[previousDirection!] = right.left;
-          right.left = null;
-          previous[previousDirection!]!.right = right;
-          previous[previousDirection!]!.left = subtree;
-          subtree.right = null;
-        } else {
-          const oldRoot = this.root!;
-          oldRoot.right = null;
-          this.root = right.left;
-          right.left = null;
-          this.root.right = right;
-          this.root.left = oldRoot;
-        }
-      }
+      this.root = subtree;
     }
   }
-  #findTreeHeight(tree: Node): number {
-    const leftHeight = tree.left ? this.#findTreeHeight(tree.left) : 0;
-    const rightHeight = tree.right ? this.#findTreeHeight(tree.right) : 0;
+  #findTreeHeight(tree: Node | null): number {
+    if (!tree) return 0;
+    const leftHeight = this.#findTreeHeight(tree.left);
+    const rightHeight = this.#findTreeHeight(tree.right);
     return leftHeight >= rightHeight ? leftHeight + 1 : rightHeight + 1;
   }
   contains(value: number): boolean {
