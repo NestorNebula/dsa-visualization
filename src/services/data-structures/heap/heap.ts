@@ -1,9 +1,10 @@
+import Array from '../array/array';
 import { FrontendSperror } from 'sperror';
 
 type HeapType = 'MIN' | 'MAX';
 
 class Heap {
-  #heap: number[] = [];
+  #heap: Array<number> = new Array();
   #type: HeapType = 'MIN';
   #getParent = (i: number) => Math.floor((i - 1) / 2);
   #getLeftChild = (i: number) => i * 2 + 1;
