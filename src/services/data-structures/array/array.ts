@@ -1,6 +1,6 @@
 class Array<Type = any> {
   length: number = 0;
-  [key: number]: Type | undefined;
+  [key: number]: Type;
   push(item: Type): void {
     this[this.length] = item;
     this.length++;
