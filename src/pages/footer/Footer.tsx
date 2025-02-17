@@ -15,6 +15,14 @@ function Footer() {
         </a>
         <div>2025</div>
       </S.Cr>
+      <S.Cd>
+        <a
+          href="https://www.flaticon.com/free-icons/machine-learning"
+          title="machine learning icons"
+        >
+          Machine learning icons created by Becris - Flaticon
+        </a>
+      </S.Cd>
     </S.Footer>
   );
 }
