@@ -1,16 +1,18 @@
 import type { JSX } from 'react';
-import { close } from '@assets/icons';
+import { close, plus } from '@assets/icons';
 import * as S from './StructureList.styles';
 
 function StructureList({
   children,
   active,
   setActive,
+  add,
   remove,
 }: {
   active: number;
   setActive: (index: number) => void;
   remove: (index: number) => void;
+  add: () => void;
   children?: JSX.Element | JSX.Element[];
 }) {
   return (
@@ -53,6 +55,9 @@ function StructureList({
       ) : (
         <></>
       )}
+      <S.Add aria-label="add new data structure" onClick={add}>
+        <img src={plus} alt="add" />
+      </S.Add>
     </S.StructureList>
   );
 }
