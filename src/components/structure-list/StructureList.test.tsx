@@ -4,9 +4,10 @@ import userEvent from '@testing-library/user-event';
 import StructureList from './StructureList';
 
 const mockSetActive = vi.fn();
+const mockRemove = vi.fn();
 beforeEach(() => {
   render(
-    <StructureList active={0} setActive={mockSetActive}>
+    <StructureList active={0} setActive={mockSetActive} remove={mockRemove}>
       <div>Item one</div>
       <div>Item two</div>
     </StructureList>
@@ -32,5 +33,13 @@ describe('structurelist', () => {
     expect(mockSetActive).not.toHaveBeenCalled();
     await user.click(buttons[1]);
     expect(mockSetActive).toHaveBeenCalled();
+  });
+
+  it('calls remove when clicking on delete button', async () => {
+    const user = userEvent.setup();
+    const buttons = screen.queryAllByRole('button', { name: /delete/i });
+    expect(buttons).toHaveLength(2);
+    await user.click(buttons[0]);
+    expect(mockRemove).toHaveBeenCalled();
   });
 });
