@@ -31,4 +31,10 @@ describe('uselocalstorage', () => {
     act(() => update([1, 2, 3]));
     expect(result.current.data).toEqual([1, 2, 3]);
   });
+
+  it("sets data to default value instead of stored one if stored one doesn't have correct type", () => {
+    const { result } = renderHook(() => useLocalStorage('data', ['0']));
+    const { data } = result.current;
+    expect(data).toEqual(['0']);
+  });
 });
