@@ -4,10 +4,16 @@ import userEvent from '@testing-library/user-event';
 import StructureList from './StructureList';
 
 const mockSetActive = vi.fn();
+const mockAdd = vi.fn();
 const mockRemove = vi.fn();
 beforeEach(() => {
   render(
-    <StructureList active={0} setActive={mockSetActive} remove={mockRemove}>
+    <StructureList
+      active={0}
+      setActive={mockSetActive}
+      add={mockAdd}
+      remove={mockRemove}
+    >
       <div>Item one</div>
       <div>Item two</div>
     </StructureList>
@@ -28,16 +34,23 @@ describe('structurelist', () => {
 
   it('calls setActive for inactive structures', async () => {
     const user = userEvent.setup();
-    const buttons = screen.queryAllByRole('button', { name: /active/i });
+    const buttons = screen.getAllByRole('button', { name: /active/i });
     await user.click(buttons[0]);
     expect(mockSetActive).not.toHaveBeenCalled();
     await user.click(buttons[1]);
     expect(mockSetActive).toHaveBeenCalled();
   });
 
+  it('calls add on add button click', async () => {
+    const user = userEvent.setup();
+    const button = screen.getByRole('button', { name: /add/i });
+    await user.click(button);
+    expect(mockAdd).toHaveBeenCalled();
+  });
+
   it('calls remove when clicking on delete button', async () => {
     const user = userEvent.setup();
-    const buttons = screen.queryAllByRole('button', { name: /delete/i });
+    const buttons = screen.getAllByRole('button', { name: /delete/i });
     expect(buttons).toHaveLength(2);
     await user.click(buttons[0]);
     expect(mockRemove).toHaveBeenCalled();
