@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-function useLocalStorage<Type = any>(key: string, def: Type[]) {
+function useLocalStorage<Type = any>(
+  key: string,
+  def: Type[],
+  reconstruct: (stored: Type) => Type
+) {
   function checkType(def: any[], data: any[]): boolean {
     const defType = typeof def;
     const dataType = typeof data;
@@ -18,7 +22,11 @@ function useLocalStorage<Type = any>(key: string, def: Type[]) {
     return true;
   }
 
-  const storedData = JSON.parse(localStorage.getItem(key) ?? '[]');
+  const storageData = JSON.parse(localStorage.getItem(key) ?? '[]');
+  const storedData: Type[] = Array.isArray(storageData) ? storageData : [];
+  for (let i = 0; i < storedData.length; i++) {
+    storedData[i] = reconstruct(storedData[i]);
+  }
   const [data, setData] = useState<Type[]>(
     Array.isArray(storedData) && storedData.length && checkType(def, storedData)
       ? storedData
