@@ -30,4 +30,28 @@ describe('useArrays', () => {
     act(() => result.current.array.remove(length - 1));
     expect(result.current.arrays).toHaveLength(length - 1);
   });
+
+  it('adds item to the end of array', () => {
+    const { result } = renderHook(() => useArrays());
+    act(() => result.current.array.push('val'));
+    expect(result.current.arrays[0][result.current.arrays[0].length - 1]).toBe(
+      'val'
+    );
+  });
+
+  it('removes item from the beginning of array', () => {
+    const { result } = renderHook(() => useArrays());
+    const prev = result.current.arrays[result.current.array.active];
+    act(() => result.current.array.shift());
+    expect(result.current.arrays[result.current.array.active][0]).toBe(prev[1]);
+  });
+
+  it('removes item from the end of array', () => {
+    const { result } = renderHook(() => useArrays());
+    const length = result.current.arrays[result.current.array.active].length;
+    act(() => result.current.array.pop());
+    expect(result.current.arrays[result.current.array.active]).toHaveLength(
+      length - 1
+    );
+  });
 });
