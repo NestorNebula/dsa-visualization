@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import * as S from './Input.styles';
 
 function Input({
@@ -11,7 +12,7 @@ function Input({
   label?: string;
   type?: string;
   value: string;
-  updateValue: () => void;
+  updateValue: (e: ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <S.Container>
