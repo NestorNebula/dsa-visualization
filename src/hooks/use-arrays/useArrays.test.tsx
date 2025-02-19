@@ -41,9 +41,9 @@ describe('useArrays', () => {
 
   it('removes item from the beginning of array', () => {
     const { result } = renderHook(() => useArrays());
-    const prev = result.current.arrays[result.current.array.active];
+    const prev = result.current.arrays[result.current.array.active][1];
     act(() => result.current.array.shift());
-    expect(result.current.arrays[result.current.array.active][0]).toBe(prev[1]);
+    expect(result.current.arrays[result.current.array.active][0]).toBe(prev);
   });
 
   it('removes item from the end of array', () => {
