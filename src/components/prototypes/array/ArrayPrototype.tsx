@@ -6,9 +6,11 @@ import type { JSX } from 'react';
 
 function Prototype({
   array,
+  onItemClick,
   getOptions,
 }: {
   array: Array;
+  onItemClick?: (index: number) => void;
   getOptions?: (index: number) => JSX.Element;
 }) {
   const getArrayContent = () => {
@@ -16,7 +18,10 @@ function Prototype({
     for (let i = 0; i < array.length; i++) {
       arrayContent.push(
         <S.Item>
-          <Box value={array[i]} />
+          <Box
+            value={array[i]}
+            onClick={onItemClick ? () => onItemClick(i) : undefined}
+          />
           {getOptions ? getOptions(i) : <></>}
         </S.Item>
       );
