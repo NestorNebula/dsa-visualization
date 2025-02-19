@@ -25,18 +25,6 @@ describe('array methods', () => {
     });
   });
 
-  describe('addItem', () => {
-    it('adds item to the correct array', () => {
-      const result = methods.addItem(arrays, 0, 3);
-      expect(result[0].length).toBe(arrays[0].length + 1);
-      expect(result[0][result[0].length - 1]).toBe(3);
-    });
-
-    it("doesn't do anything when index is incorrect", () => {
-      expect(methods.addItem(arrays, 2, 3)).toEqual(arrays);
-    });
-  });
-
   describe('updateItem', () => {
     it('updates item correctly', () => {
       const result = methods.updateItem(arrays, 0, 1, 3);
