@@ -72,6 +72,17 @@ class Graph {
     this.#updateEdges(this.vertices[firstValue], secondValue);
     return [firstValue, secondValue];
   }
+
+  constructor(graph?: Graph) {
+    if (graph) {
+      const vertices = graph.vertices;
+      for (const key in vertices) {
+        const vertice = vertices[key];
+        vertice.edges = new Array(vertice.edges);
+      }
+      this.vertices = graph.vertices;
+    }
+  }
 }
 
 export default Graph;

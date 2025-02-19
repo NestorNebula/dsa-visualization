@@ -28,9 +28,18 @@ class HashMap {
     return false;
   }
 
-  constructor() {
+  constructor(hashMap?: HashMap) {
     for (let i = 97; i <= 122; i++) {
       this[String.fromCharCode(i)] = new LinkedList();
+    }
+
+    if (hashMap) {
+      for (const key in hashMap) {
+        if ((hashMap[key] as LinkedList).head) {
+          this[key] = new LinkedList(hashMap[key]);
+        }
+      }
+      this.size = hashMap.size;
     }
   }
 }

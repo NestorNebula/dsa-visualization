@@ -21,6 +21,14 @@ class Queue<Type = any> {
     this.tail = this.#queue.tail;
     return node.value;
   }
+
+  constructor(queue?: Queue) {
+    if (queue) {
+      this.#queue = new LinkedList(queue.#queue);
+      this.head = queue.head;
+      this.tail = queue.tail;
+    }
+  }
 }
 
 export default Queue;

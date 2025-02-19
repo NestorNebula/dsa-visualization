@@ -112,5 +112,12 @@ class Heap {
       this.#reorganize('MIN');
     }
   }
+
+  constructor(heap?: Heap) {
+    if (heap) {
+      this.#heap = new Array(heap.#heap);
+      this.#type = heap.#type;
+    }
+  }
 }
 export default Heap;

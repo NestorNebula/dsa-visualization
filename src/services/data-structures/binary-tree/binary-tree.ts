@@ -150,6 +150,12 @@ class BinaryTree {
     }
     return false;
   }
+
+  constructor(binaryTree?: BinaryTree) {
+    if (binaryTree) {
+      this.root = binaryTree.root;
+    }
+  }
 }
 
 export default BinaryTree;

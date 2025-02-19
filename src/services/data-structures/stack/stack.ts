@@ -13,6 +13,15 @@ class Stack<Type = any> {
       return item;
     }
   }
+
+  constructor(stack?: Stack) {
+    if (stack) {
+      for (const key in stack) {
+        this[key] = stack[key];
+      }
+      this.size = stack.size;
+    }
+  }
 }
 
 export default Stack;

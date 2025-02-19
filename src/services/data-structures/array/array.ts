@@ -20,6 +20,15 @@ class Array<Type = any> {
     this.length--;
     return item;
   }
+
+  constructor(array?: Array) {
+    if (array) {
+      for (const key in array) {
+        this[key] = array[key];
+      }
+      this.length = array.length;
+    }
+  }
 }
 
 export default Array;

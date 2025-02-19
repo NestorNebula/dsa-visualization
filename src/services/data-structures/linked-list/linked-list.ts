@@ -48,6 +48,13 @@ class LinkedList<Type = any> {
     }
     return false;
   }
+
+  constructor(linkedList?: LinkedList) {
+    if (linkedList) {
+      this.head = linkedList.head;
+      this.tail = linkedList.tail;
+    }
+  }
 }
 
 export default LinkedList;
