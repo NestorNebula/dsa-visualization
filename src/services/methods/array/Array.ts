@@ -1,12 +1,13 @@
 import { Array } from '@services/data-structures';
+import common from '../common/common';
 
 const methods = {
   add(arrays: Array[]): Array[] {
-    return [...arrays, new Array()];
+    return common.add(arrays, () => new Array());
   },
 
   remove(arrays: Array[], index: number): Array[] {
-    return arrays.filter((a, i) => a && i !== index);
+    return common.remove(arrays, index);
   },
 
   updateItem(
