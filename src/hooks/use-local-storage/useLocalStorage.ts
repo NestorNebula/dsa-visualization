@@ -10,14 +10,19 @@ function useLocalStorage<Type = any>(
     const dataType = typeof data;
     if (defType !== dataType) return false;
     if (defType !== 'object') return true;
-    const defKeys = Object.keys(def[0]).sort();
-    const dataKeys = Object.keys(data[0]).sort();
+    const defKeys = Object.keys(def[0])
+      .sort()
+      .filter((key) => isNaN(Number(key)));
+    const dataKeys = Object.keys(data[0])
+      .sort()
+      .filter((key) => isNaN(Number(key)));
     for (let i = 0; i < defKeys.length; i++) {
       if (
         defKeys[i] !== dataKeys[i] ||
         typeof def[0][defKeys[i]] !== typeof data[0][dataKeys[i]]
-      )
+      ) {
         return false;
+      }
     }
     return true;
   }
