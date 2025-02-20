@@ -21,6 +21,7 @@ function useArrays(): {
   };
   const removeArray = (index: number) => {
     update(methods.remove(arrays, index));
+    setArray(array - 1 >= 0 ? array - 1 : 0);
   };
   const pushItem = (value: any) => {
     arrays[array].push(value);
