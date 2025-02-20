@@ -15,21 +15,17 @@ const routes: RouteObject[] = [
       {
         index: true,
         element: <App />,
-        errorElement: <Error />,
       },
       {
         path: '/data-structures',
         element: <DataStructures />,
-        errorElement: <Error />,
       },
       {
         path: '/data-structures/array',
         element: <Array />,
-        errorElement: <Error />,
       },
       {
         path: '*',
-        errorElement: <Error />,
         loader: () => {
           throw new Sperror('Not Found', 'Page not found', 404);
         },
