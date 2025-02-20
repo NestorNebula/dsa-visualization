@@ -3,8 +3,13 @@ import useLocalStorage from '@hooks/use-local-storage/useLocalStorage';
 import { dataStructures } from '@services/default';
 import { Array } from '@services/data-structures';
 import { array as methods } from '@services/methods';
+import type { ArrayMethods, ArrayItemMethods } from '#types/methods';
 
-function useArrays() {
+function useArrays(): {
+  arrays: Array[];
+  array: ArrayMethods;
+  item: ArrayItemMethods;
+} {
   const { data: arrays, update } = useLocalStorage(
     'arrays',
     dataStructures.arrays,
