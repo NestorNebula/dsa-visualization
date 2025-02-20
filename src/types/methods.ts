@@ -1,17 +1,24 @@
-interface ArrayMethods {
+interface CommonMethods {
   active: number;
   set: (index: number) => void;
   add: () => void;
   remove: (index: number) => void;
+}
+
+interface ArrayMethods extends CommonMethods {
   push: (value: any) => void;
   shift: () => void;
   pop: () => void;
 }
 
-interface ArrayItemMethods {
+interface ArrayItemMethods extends Pick<CommonMethods, 'set'> {
   active: number | null;
-  set: (index: number) => void;
   update: (value: any) => void;
 }
 
-export type { ArrayMethods, ArrayItemMethods };
+interface LinkedListMethods extends CommonMethods {
+  addItem(value: any): void;
+  removeItem(value: any): void;
+}
+
+export type { ArrayMethods, ArrayItemMethods, LinkedListMethods };
