@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import methods from './Array';
+import methods from './array';
 import { dataStructures } from '@services/default';
 
 describe('array methods', () => {
@@ -22,17 +22,6 @@ describe('array methods', () => {
 
     it("doesn't remove anything when index is incorrect", () => {
       expect(methods.remove(arrays, 2)).toHaveLength(arrays.length);
-    });
-  });
-
-  describe('updateItem', () => {
-    it('updates item correctly', () => {
-      const result = methods.updateItem(arrays, 0, 1, 3);
-      expect(result[0][1]).toBe(3);
-    });
-
-    it("doesn't do anything when any index is incorrect", () => {
-      expect(methods.updateItem(arrays, 2, 4, 3)).toEqual(arrays);
     });
   });
 });

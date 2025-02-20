@@ -1,3 +1,3 @@
-import array from './array/Array';
+import array from './array/array';
 
 export { array };
