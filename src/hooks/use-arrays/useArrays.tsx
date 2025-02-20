@@ -31,6 +31,12 @@ function useArrays() {
   };
 
   const [item, setItem] = useState<number | null>(null);
+  const updateItem = (value: any) => {
+    if (item) {
+      arrays[array][item] = value;
+      update(arrays);
+    }
+  };
 
   return {
     arrays,
@@ -43,7 +49,7 @@ function useArrays() {
       shift: shiftItem,
       pop: popItem,
     },
-    item: { active: item, set: setItem },
+    item: { active: item, set: setItem, update: updateItem },
   };
 }
 
