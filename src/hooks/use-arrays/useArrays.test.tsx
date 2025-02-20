@@ -54,4 +54,15 @@ describe('useArrays', () => {
       length - 1
     );
   });
+
+  it('updates item inside array', () => {
+    const { result } = renderHook(() => useArrays());
+    act(() => result.current.item.set(1));
+    act(() => result.current.item.update(3));
+    expect(
+      result.current.arrays[result.current.array.active][
+        result.current.item.active!
+      ]
+    ).toBe(3);
+  });
 });
