@@ -10,8 +10,8 @@ function useLocalStorage<Type = any>(
     const dataType = typeof data;
     if (defType !== dataType) return false;
     if (defType !== 'object') return true;
-    const defKeys = Object.keys(def).sort();
-    const dataKeys = Object.keys(data).sort();
+    const defKeys = Object.keys(def[0]).sort();
+    const dataKeys = Object.keys(data[0]).sort();
     for (let i = 0; i < defKeys.length; i++) {
       if (
         defKeys[i] !== dataKeys[i] ||
