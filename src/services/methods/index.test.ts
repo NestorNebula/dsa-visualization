@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import methods from './common';
+import methods from './index';
 
 class Obj {
   value = 'test';
@@ -8,7 +8,7 @@ class Obj {
   }
 }
 
-describe('common', () => {
+describe('methods', () => {
   const objects: Obj[] = [new Obj('First obj')];
 
   describe('add', () => {
