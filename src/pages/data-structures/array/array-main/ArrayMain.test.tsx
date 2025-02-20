@@ -1,11 +1,16 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Array from './Array';
-import arrays from '@services/default/array';
+import ArrayMain from './ArrayMain';
+import { useArrays } from '@hooks';
+import { dataStructures } from '@services/default';
+
+const arrays = dataStructures.arrays;
 
 beforeEach(() => {
-  render(<Array />);
+  const { result } = renderHook(() => useArrays());
+  const { arrays, array, item } = result.current;
+  render(<ArrayMain arrays={arrays} array={array} item={item} />);
 });
 
 describe('array', () => {
