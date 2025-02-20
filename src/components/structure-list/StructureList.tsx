@@ -20,7 +20,7 @@ function StructureList({
       {children ? (
         Array.isArray(children) ? (
           children.map((c, i) => (
-            <S.Structure>
+            <S.Structure key={`array-structure${i}`}>
               <S.Delete
                 aria-label="delete data structure"
                 onClick={() => remove(i)}

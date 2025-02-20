@@ -17,7 +17,7 @@ function Prototype({
     const arrayContent: JSX.Element[] = [];
     for (let i = 0; i < array.length; i++) {
       arrayContent.push(
-        <S.Item>
+        <S.Item key={`array-content${i}`}>
           <Box
             value={array[i]}
             onClick={onItemClick ? () => onItemClick(i) : undefined}
