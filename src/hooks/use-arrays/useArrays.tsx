@@ -24,23 +24,27 @@ function useArrays(): {
     setArray(array - 1 >= 0 ? array - 1 : 0);
   };
   const pushItem = (value: any) => {
-    arrays[array].push(value);
-    update(arrays);
+    const arrs = arrays.map((arr) => arr);
+    arrs[array].push(value);
+    update(arrs);
   };
   const shiftItem = () => {
-    arrays[array].shift();
-    update(arrays);
+    const arrs = arrays.map((arr) => arr);
+    arrs[array].shift();
+    update(arrs);
   };
   const popItem = () => {
-    arrays[array].pop();
-    update(arrays);
+    const arrs = arrays.map((arr) => arr);
+    arrs[array].pop();
+    update(arrs);
   };
 
   const [item, setItem] = useState<number | null>(null);
   const updateItem = (value: any) => {
+    const arrs = arrays.map((arr) => arr);
     if (item) {
-      arrays[array][item] = value;
-      update(arrays);
+      arrs[array][item] = value;
+      update(arrs);
     }
   };
 
