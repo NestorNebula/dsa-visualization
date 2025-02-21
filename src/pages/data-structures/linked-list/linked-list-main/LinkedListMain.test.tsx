@@ -38,9 +38,9 @@ describe('linkedlistmain', () => {
       <LinkedListMain linkedLists={linkedLists} linkedList={linkedList} />
     );
     const user = userEvent.setup();
-    await user.click(screen.getByText(/remove item/i));
+    await user.click(screen.getByLabelText(/remove item/i));
     await user.type(screen.getByLabelText(/remove item/i), '33');
     await user.click(screen.getByRole('button', { name: /confirm/i }));
-    expect(linkedList.addItem).toHaveBeenCalledWith('33');
+    expect(linkedList.removeItem).toHaveBeenCalledWith('33');
   });
 });
