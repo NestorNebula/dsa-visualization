@@ -12,7 +12,7 @@ function LinkedListPrototype({ linkedList }: { linkedList: LinkedList }) {
     let count = 0;
     while (item) {
       linkedListContent.push(
-        <S.Item key={`linked-list-item${count}`}>
+        <S.Item key={`linked-list-item${count}:${item.value}`}>
           <Box value={item.value} />
           {item.next ? <img src={linkArrow} alt="arrow to next item" /> : <></>}
         </S.Item>
