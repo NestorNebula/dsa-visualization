@@ -27,16 +27,23 @@ function useLocalStorage<Type = any>(
     return true;
   }
 
-  const storageData = JSON.parse(localStorage.getItem(key) ?? '[]');
-  const storedData: Type[] = Array.isArray(storageData) ? storageData : [];
-  for (let i = 0; i < storedData.length; i++) {
-    storedData[i] = reconstruct(storedData[i]);
+  function getStoredData(): Type[] {
+    const storageData = JSON.parse(localStorage.getItem(key) ?? '[]');
+    const storedData: Type[] = Array.isArray(storageData) ? storageData : [];
+    for (let i = 0; i < storedData.length; i++) {
+      storedData[i] = reconstruct(storedData[i]);
+    }
+    return storedData;
   }
-  const [data, setData] = useState<Type[]>(
-    Array.isArray(storedData) && storedData.length && checkType(def, storedData)
+
+  const [data, setData] = useState<Type[]>(() => {
+    const storedData = getStoredData();
+    return Array.isArray(storedData) &&
+      storedData.length &&
+      checkType(def, storedData)
       ? storedData
-      : def
-  );
+      : def;
+  });
   const update = (data: Type[]) => {
     const updatedData = data.length && checkType(def, data) ? data : def;
     setData(updatedData);
