@@ -51,8 +51,18 @@ class LinkedList<Type = any> {
 
   constructor(linkedList?: LinkedList) {
     if (linkedList) {
-      this.head = linkedList.head;
-      this.tail = linkedList.tail;
+      let node = linkedList.head;
+      while (node) {
+        const newNode = new Node(node.value);
+        newNode.next = node.next;
+        if (!this.head || !this.tail) {
+          this.head = this.tail = newNode;
+        } else {
+          this.tail.next = newNode;
+          this.tail = newNode;
+        }
+        node = node.next;
+      }
     }
   }
 }
