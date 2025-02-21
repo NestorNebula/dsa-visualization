@@ -4,6 +4,7 @@ import App from '../App';
 import DataStructures from '@pages/data-structures/DataStructures';
 import Array from '@pages/data-structures/array/Array';
 import LinkedList from '@pages/data-structures/linked-list/LinkedList';
+import HashMap from '@pages/data-structures/hashmap/HashMap';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -28,6 +29,10 @@ const routes: RouteObject[] = [
       {
         path: '/data-structures/linked-list',
         element: <LinkedList />,
+      },
+      {
+        path: '/data-structures/hashmap',
+        element: <HashMap />,
       },
       {
         path: '*',
