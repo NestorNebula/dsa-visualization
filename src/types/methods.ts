@@ -26,9 +26,15 @@ interface HashMapMethods extends CommonMethods {
   removeValue(value: string): void;
 }
 
+interface StackMethods extends CommonMethods {
+  push: (value: any) => void;
+  pop: () => void;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
   LinkedListMethods,
   HashMapMethods,
+  StackMethods,
 };
