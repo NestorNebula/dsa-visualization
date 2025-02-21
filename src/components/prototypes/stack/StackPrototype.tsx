@@ -8,7 +8,7 @@ function StackPrototype({ stack }: { stack: Stack }) {
   const getStackContent = () => {
     const stackContent: JSX.Element[] = [];
     for (let i = 0; i < stack.size; i++) {
-      stackContent.push(<Box value={stack[i]} />);
+      stackContent.push(<Box key={`stackitem-${i}`} value={stack[i]} />);
     }
     return stackContent;
   };
