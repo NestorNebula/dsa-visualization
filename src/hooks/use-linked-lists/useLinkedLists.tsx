@@ -23,6 +23,9 @@ function useLinkedLists(): {
 
   const removeLinkedList = (index: number) => {
     update(methods.remove(linkedLists, index));
+    if (index === active) {
+      setActive(index - 1 >= 0 ? 0 : 0);
+    }
   };
 
   const addItem = (value: any) => {
