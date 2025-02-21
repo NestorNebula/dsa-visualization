@@ -23,7 +23,7 @@ class LinkedList<Type = any> {
     let previous: Node<Type> | null = null;
     let node: Node<Type> | null = this.head;
     while (node) {
-      if (node.value === value) {
+      if (node.value === value || node.value === +value) {
         if (previous) {
           previous.next = node.next;
         } else {
