@@ -30,12 +30,15 @@ function LinkedListMain({
         {status ? (
           <Form
             onSubmit={() => {
-              if (status === 'add') {
-                linkedList.addItem(value);
-              } else if (status === 'delete') {
-                linkedList.removeItem(value);
+              if (value) {
+                if (status === 'add') {
+                  linkedList.addItem(value);
+                } else if (status === 'delete') {
+                  linkedList.removeItem(value);
+                }
               }
               setStatus(null);
+              setValue('');
             }}
             name={`Confirm ${
               status === 'delete' ? 'deleting item' : 'adding item'
