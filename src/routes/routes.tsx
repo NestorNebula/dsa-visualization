@@ -5,6 +5,7 @@ import DataStructures from '@pages/data-structures/DataStructures';
 import Array from '@pages/data-structures/array/Array';
 import LinkedList from '@pages/data-structures/linked-list/LinkedList';
 import HashMap from '@pages/data-structures/hashmap/HashMap';
+import Stack from '@pages/data-structures/stack/Stack';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -33,6 +34,10 @@ const routes: RouteObject[] = [
       {
         path: '/data-structures/hashmap',
         element: <HashMap />,
+      },
+      {
+        path: '/data-structures/stack',
+        element: <Stack />,
       },
       {
         path: '*',
