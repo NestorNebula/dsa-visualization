@@ -21,4 +21,14 @@ interface LinkedListMethods extends CommonMethods {
   removeItem(value: any): void;
 }
 
-export type { ArrayMethods, ArrayItemMethods, LinkedListMethods };
+interface HashMapMethods extends CommonMethods {
+  addValue(value: string): void;
+  removeValue(value: string): void;
+}
+
+export type {
+  ArrayMethods,
+  ArrayItemMethods,
+  LinkedListMethods,
+  HashMapMethods,
+};
