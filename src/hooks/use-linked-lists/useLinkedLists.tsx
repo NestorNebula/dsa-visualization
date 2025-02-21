@@ -36,7 +36,6 @@ function useLinkedLists(): {
 
   const removeItem = (value: any) => {
     linkedLists[active].remove(value);
-    console.log(linkedLists[active]);
     const lls = linkedLists.map((l) => l);
     update(lls);
   };
