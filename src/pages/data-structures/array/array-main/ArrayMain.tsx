@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent } from 'react';
-import { DSAHeader } from '@components/dsa-header/DSAHeader.styles';
+import DSAHeader from '@components/dsa-header/DSAHeader';
 import Prototype from '@components/prototypes/array/ArrayPrototype';
 import { OptionsButton, OptionsDialog, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
