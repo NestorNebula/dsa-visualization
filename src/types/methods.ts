@@ -36,6 +36,12 @@ interface QueueMethods extends CommonMethods {
   dequeue(): void;
 }
 
+interface BinaryTreeMethods extends CommonMethods {
+  addValue(value: number): void;
+  removeValue(value: number): void;
+  rebalance(): void;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -43,4 +49,5 @@ export type {
   HashMapMethods,
   StackMethods,
   QueueMethods,
+  BinaryTreeMethods,
 };
