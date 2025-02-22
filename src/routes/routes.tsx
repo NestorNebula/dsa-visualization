@@ -6,6 +6,7 @@ import Array from '@pages/data-structures/array/Array';
 import LinkedList from '@pages/data-structures/linked-list/LinkedList';
 import HashMap from '@pages/data-structures/hashmap/HashMap';
 import Stack from '@pages/data-structures/stack/Stack';
+import Queue from '@pages/data-structures/queue/Queue';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -38,6 +39,10 @@ const routes: RouteObject[] = [
       {
         path: '/data-structures/stack',
         element: <Stack />,
+      },
+      {
+        path: 'data-structures/queue',
+        element: <Queue />,
       },
       {
         path: '*',
