@@ -31,10 +31,16 @@ interface StackMethods extends CommonMethods {
   pop: () => void;
 }
 
+interface QueueMethods extends CommonMethods {
+  enqueue(value: any): void;
+  dequeue(): void;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
   LinkedListMethods,
   HashMapMethods,
   StackMethods,
+  QueueMethods,
 };
