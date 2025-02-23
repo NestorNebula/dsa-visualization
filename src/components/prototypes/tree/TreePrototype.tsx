@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import { createRef, useState, useEffect, useRef } from 'react';
 import { Array } from '@services/data-structures';
 import { getArrayRepresentation, type Tree } from './TreePrototype.helpers';
 import Node from '@components/node/Node';
@@ -19,32 +19,38 @@ function TreePrototype({
   const getTreeContent = () => {
     const treeContent: JSX.Element[] = [];
 
-    const refs: Array<RefObject<HTMLDivElement | null> | null> = new Array();
     const getParent = (i: number) => Math.floor((i - 1) / 2);
+
+    const [coordinates, setCoordinates] = useState<
+      Array<{ x: number; y: number } | null>
+    >(new Array());
+    const refs: RefObject<Array<RefObject<HTMLDivElement | null> | null>> =
+      useRef(new Array());
 
     let max = 1;
     let rowContent: JSX.Element[] = [];
 
     for (let i = 0; i < arrayRepresentation.length; i++) {
       if (arrayRepresentation[i] !== null) {
-        const ref = createRef<HTMLDivElement>();
-        refs.push(ref);
-        const parent = refs[getParent(i)];
+        const ref = refs.current[i] ?? createRef<HTMLDivElement>();
+        if (!refs.current[i]) {
+          refs.current.push(ref);
+        }
+        const parentLink = coordinates[i];
         rowContent.push(
           <S.Container key={`binarytree-${i}-${arrayRepresentation[i]}`}>
-            {parent && parent.current && ref.current ? (
-              <S.Link>
+            {parentLink ? (
+              <S.Link
+                style={{
+                  height: `${parentLink.y}`,
+                }}
+              >
                 <line
                   x1="0"
-                  x2={
-                    parent.current?.getBoundingClientRect().left -
-                    ref.current?.getBoundingClientRect().left
-                  }
+                  x2={parentLink.x}
                   y1="0"
-                  y2={
-                    parent.current.getBoundingClientRect().bottom -
-                    ref.current.getBoundingClientRect().top
-                  }
+                  y2={parentLink.y}
+                  stroke="black"
                 />
               </S.Link>
             ) : (
@@ -63,6 +69,7 @@ function TreePrototype({
           </S.Container>
         );
       } else {
+        refs.current.push(null);
         rowContent.push(<S.EmptyNode key={`binarytree-empty-${i}`} />);
       }
       if (rowContent.length === max || i === arrayRepresentation.length - 1) {
@@ -73,6 +80,28 @@ function TreePrototype({
         max *= 2;
       }
     }
+    useEffect(() => {
+      if (coordinates.length !== arrayRepresentation.length) {
+        const newCoordinates: Array<{ x: number; y: number } | null> =
+          new Array();
+        for (let i = 0; i < arrayRepresentation.length; i++) {
+          const self = refs.current[i];
+          const parent = refs.current[getParent(i)];
+          if (parent && parent.current && self && self.current) {
+            const x =
+              parent.current.getBoundingClientRect().left -
+              self.current.getBoundingClientRect().left;
+            const y =
+              parent.current.getBoundingClientRect().bottom -
+              self.current.getBoundingClientRect().top;
+            newCoordinates.push({ x, y });
+          } else {
+            newCoordinates.push(null);
+          }
+        }
+        setCoordinates(newCoordinates);
+      }
+    }, [window]);
 
     return treeContent;
   };

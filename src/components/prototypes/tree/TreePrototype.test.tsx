@@ -55,6 +55,6 @@ describe('treeprototype', () => {
     }
 
     const nodesNumber = getNumberOfNodes(tree.root!);
-    expect(mockGetOptions).toHaveBeenCalledTimes(nodesNumber);
+    expect(mockGetOptions).toHaveBeenCalledTimes(nodesNumber * 2);
   });
 });
