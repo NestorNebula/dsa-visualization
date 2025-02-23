@@ -7,6 +7,7 @@ import LinkedList from '@pages/data-structures/linked-list/LinkedList';
 import HashMap from '@pages/data-structures/hashmap/HashMap';
 import Stack from '@pages/data-structures/stack/Stack';
 import Queue from '@pages/data-structures/queue/Queue';
+import BinaryTree from '@pages/data-structures/binary-tree/BinaryTree';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -43,6 +44,10 @@ const routes: RouteObject[] = [
       {
         path: 'data-structures/queue',
         element: <Queue />,
+      },
+      {
+        path: 'data-structures/binary-tree',
+        element: <BinaryTree />,
       },
       {
         path: '*',
