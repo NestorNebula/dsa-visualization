@@ -5,7 +5,7 @@ type HeapType = 'MIN' | 'MAX';
 
 class Heap {
   heap: Array<number> = new Array();
-  #type: HeapType = 'MIN';
+  type: HeapType = 'MIN';
   #getParent = (i: number) => Math.floor((i - 1) / 2);
   #getLeftChild = (i: number) => i * 2 + 1;
   #getRightChild = (i: number) => i * 2 + 2;
@@ -45,8 +45,8 @@ class Heap {
     this.heap.push(value);
     let parent = this.#getParent(index);
     while (
-      (this.#type === 'MIN' && this.heap[index] < this.heap[parent]) ||
-      (this.#type === 'MAX' && this.heap[index] > this.heap[parent])
+      (this.type === 'MIN' && this.heap[index] < this.heap[parent]) ||
+      (this.type === 'MAX' && this.heap[index] > this.heap[parent])
     ) {
       [this.heap[index], this.heap[parent]] = [
         this.heap[parent],
@@ -57,7 +57,7 @@ class Heap {
     }
   }
   getMin(): number | undefined {
-    if (this.#type === 'MAX')
+    if (this.type === 'MAX')
       throw new FrontendSperror(
         'Bad method call',
         "You can't call getMin on maxHeap"
@@ -65,7 +65,7 @@ class Heap {
     return this.heap[0];
   }
   extractMin(): number | undefined {
-    if (this.#type === 'MAX')
+    if (this.type === 'MAX')
       throw new FrontendSperror(
         'Bad method call',
         "You can't call extractMin on maxHeap"
@@ -79,7 +79,7 @@ class Heap {
     return min;
   }
   getMax(): number | undefined {
-    if (this.#type === 'MIN')
+    if (this.type === 'MIN')
       throw new FrontendSperror(
         'Bad method call',
         "You can't call getMax on minHeap"
@@ -87,7 +87,7 @@ class Heap {
     return this.heap[0];
   }
   extractMax(): number | undefined {
-    if (this.#type === 'MIN')
+    if (this.type === 'MIN')
       throw new FrontendSperror(
         'Bad method call',
         "You can't call extractMax on minHeap"
@@ -101,11 +101,11 @@ class Heap {
     return max;
   }
   revert(): void {
-    if (this.#type === 'MIN') {
-      this.#type = 'MAX';
+    if (this.type === 'MIN') {
+      this.type = 'MAX';
       this.#reorganize('MAX');
     } else {
-      this.#type = 'MIN';
+      this.type = 'MIN';
       this.#reorganize('MIN');
     }
   }
@@ -113,7 +113,7 @@ class Heap {
   constructor(heap?: Heap) {
     if (heap) {
       this.heap = new Array(heap.heap);
-      this.#type = heap.#type;
+      this.type = heap.type;
     }
   }
 }
