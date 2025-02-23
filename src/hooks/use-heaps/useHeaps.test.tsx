@@ -27,11 +27,11 @@ describe('useheaps', () => {
       const { result } = renderHook(() => useHeaps());
       act(() => result.current.heap.addValue(newValue));
       const heap = result.current.heaps[result.current.heap.active];
-      let min = heap.extractMin();
-      while (heap.heap.length && min && min < newValue) {
-        min = heap.extractMin();
+      let max = heap.extractMax();
+      while (heap.heap.length && max && max > newValue) {
+        max = heap.extractMax();
       }
-      expect(min).toBe(newValue);
+      expect(max).toBe(newValue);
     });
   });
 
@@ -52,8 +52,8 @@ describe('useheaps', () => {
       const heap = result.current.heaps[result.current.heap.active];
       const minValue = heap.heap[0];
       act(() => result.current.heap.revert());
-      expect(heap.heap[0]).toBeGreaterThan(minValue);
-      expect(heap.type).toBe('MAX');
+      expect(heap.heap[0]).toBeLessThan(minValue);
+      expect(heap.type).toBe('MIN');
     });
   });
 });
