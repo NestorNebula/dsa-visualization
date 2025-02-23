@@ -22,12 +22,11 @@ function TreePrototype({
     const refs: Array<RefObject<HTMLDivElement | null> | null> = new Array();
     const getParent = (i: number) => Math.floor((i - 1) / 2);
 
-    let count = 0;
     let max = 1;
     let rowContent: JSX.Element[] = [];
 
     for (let i = 0; i < arrayRepresentation.length; i++) {
-      if (arrayRepresentation[i]) {
+      if (arrayRepresentation[i] !== null) {
         const ref = createRef<HTMLDivElement>();
         refs.push(ref);
         const parent = refs[getParent(i)];
@@ -66,14 +65,12 @@ function TreePrototype({
       } else {
         rowContent.push(<S.EmptyNode key={`binarytree-empty-${i}`} />);
       }
-      count++;
-      if (count === max) {
+      if (rowContent.length === max || i === arrayRepresentation.length - 1) {
         treeContent.push(
           <S.Row key={`binarytree-row${max}`}>{rowContent}</S.Row>
         );
         rowContent = [];
         max *= 2;
-        count = 0;
       }
     }
 
