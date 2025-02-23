@@ -28,7 +28,7 @@ function BinaryTreeMain({
       return (
         <OptionsDialog>
           <OptionsButton
-            onClick={() => binaryTrees[binaryTree.active].remove(val)}
+            onClick={() => binaryTree.removeValue(val)}
             textVersion
             label="Remove value"
           />
@@ -67,7 +67,7 @@ function BinaryTreeMain({
           />
         )}
         <OptionsButton
-          onClick={() => binaryTrees[binaryTree.active].rebalance()}
+          onClick={() => binaryTree.rebalance()}
           textVersion
           label="Rebalance"
         />
