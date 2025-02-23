@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { render, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import BinaryTreeMain from './BinaryTreeMain';
@@ -12,9 +12,6 @@ interface Node {
 
 const { result } = renderHook(() => useBinaryTrees());
 const { binaryTrees, binaryTree } = result.current;
-beforeEach(() => {
-  render(<BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />);
-});
 
 describe('binarytreemain', () => {
   const user = userEvent.setup();
@@ -31,10 +28,16 @@ describe('binarytreemain', () => {
         return false;
       }
     }
+    render(
+      <BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />
+    );
     expect(checkTreeNodes(binaryTrees[binaryTree.active].root!)).toBeTruthy();
   });
 
   it('adds node to the tree', async () => {
+    render(
+      <BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />
+    );
     await user.click(screen.getByRole('button', { name: /add value/i }));
     await user.type(screen.getByLabelText(/add value/i), '48');
     await user.click(screen.getByRole('button', { name: /confirm/i }));
@@ -42,13 +45,22 @@ describe('binarytreemain', () => {
   });
 
   it('removes node from the tree', async () => {
+    const page = render(
+      <BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />
+    );
     const value = binaryTrees[binaryTree.active].root!.value;
     await user.click(screen.getByText(value));
     await user.click(screen.getByRole('button', { name: /remove/i }));
+    page.rerender(
+      <BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />
+    );
     expect(screen.queryByText(value)).not.toBeInTheDocument();
   });
 
   it('calls rebalance for active tree', async () => {
+    render(
+      <BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />
+    );
     binaryTrees[binaryTree.active].rebalance = vi.fn();
     await user.click(screen.getByRole('button', { name: /rebalance/i }));
     expect(binaryTrees[binaryTree.active].rebalance).toHaveBeenCalled();
