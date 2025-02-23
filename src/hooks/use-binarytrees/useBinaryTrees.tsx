@@ -23,6 +23,9 @@ function useBinaryTrees(): {
 
   const removeBinaryTree = (index: number) => {
     update(methods.remove(binaryTrees, index));
+    if (active === index) {
+      setActive(active > 0 ? active - 1 : 0);
+    }
   };
 
   const addValue = (value: number) => {
