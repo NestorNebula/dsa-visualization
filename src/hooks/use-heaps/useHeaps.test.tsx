@@ -35,11 +35,11 @@ describe('useheaps', () => {
     });
   });
 
-  describe('removeValue', () => {
+  describe('extract', () => {
     it('removes value from active heap', () => {
       const { result } = renderHook(() => useHeaps());
       const value = result.current.heaps[result.current.heap.active].heap[0];
-      act(() => result.current.heap.removeValue(value));
+      act(() => result.current.heap.extract());
       expect(result.current.heaps[result.current.heap.active].heap[0]).not.toBe(
         value
       );
