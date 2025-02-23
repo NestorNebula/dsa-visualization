@@ -44,7 +44,7 @@ interface BinaryTreeMethods extends CommonMethods {
 
 interface HeapMethods extends CommonMethods {
   addValue(value: number): void;
-  removeValue(value: number): void;
+  extract(): void;
   revert(): void;
 }
 
