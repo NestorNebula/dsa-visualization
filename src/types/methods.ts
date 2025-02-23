@@ -42,6 +42,12 @@ interface BinaryTreeMethods extends CommonMethods {
   rebalance(): void;
 }
 
+interface HeapMethods extends CommonMethods {
+  addValue(value: number): void;
+  removeValue(value: number): void;
+  revert(): void;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -50,4 +56,5 @@ export type {
   StackMethods,
   QueueMethods,
   BinaryTreeMethods,
+  HeapMethods,
 };
