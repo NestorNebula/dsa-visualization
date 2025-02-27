@@ -1,0 +1,63 @@
+import { type ChangeEvent, useState } from 'react';
+import DSAHeader from '@components/dsa-header/DSAHeader';
+import { OptionsButton, OptionsList } from '@components/options';
+import { Form, Input } from '@components/forms';
+import { Tree as Prototype } from '@components/prototypes';
+import { plus, revert } from '@assets/icons';
+import * as S from './HeapMain.styles';
+import type { Heap } from '@services/data-structures';
+import type { HeapMethods } from '#types/methods';
+
+function HeapMain({ heaps, heap }: { heaps: Heap[]; heap: HeapMethods }) {
+  const [opened, setOpened] = useState(false);
+  const [value, setValue] = useState('');
+  const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.currentTarget.value);
+  };
+
+  return (
+    <S.HeapMain>
+      <DSAHeader
+        title={heaps[heap.active].type === 'MAX' ? 'Max Heap' : 'Min Heap'}
+        resource="https://www.geeksforgeeks.org/heap-data-structure/"
+      />
+      <OptionsList>
+        {opened ? (
+          <Form
+            onSubmit={() => {
+              if (value && Number.isInteger(+value)) {
+                heap.addValue(+value);
+              }
+              setValue('');
+              setOpened(false);
+            }}
+            name="Confirm adding value"
+          >
+            <Input name="add value" value={value} updateValue={updateValue} />
+          </Form>
+        ) : (
+          <OptionsButton
+            onClick={() => setOpened(true)}
+            icon={plus}
+            label="Add Value"
+          />
+        )}
+        <OptionsButton
+          onClick={heap.extract}
+          textVersion
+          label={`Extract ${heaps[heap.active].type.toLowerCase()} value`}
+        />
+        <OptionsButton
+          onClick={heap.revert}
+          icon={revert}
+          label={`Revert to ${
+            heaps[heap.active].type === 'MAX' ? 'min' : 'max'
+          } heap`}
+        />
+      </OptionsList>
+      <Prototype tree={heaps[heap.active]} />
+    </S.HeapMain>
+  );
+}
+
+export default HeapMain;
