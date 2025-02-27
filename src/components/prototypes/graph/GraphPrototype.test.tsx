@@ -32,9 +32,7 @@ describe('graphprototype', () => {
       for (let i = 0; i < edges.length; i++) {
         const edge = edges[i];
         expect(
-          screen.queryByRole('button', {
-            name: new RegExp(`edge-${key}-${edge}`),
-          })
+          screen.queryByLabelText(new RegExp(`edge-${key}-${edge}`))
         ).toBeInTheDocument();
       }
     }
@@ -49,7 +47,7 @@ describe('graphprototype', () => {
       });
       const edge = graph.vertices[key].edges[0];
       await user.click(
-        screen.getByRole('button', { name: new RegExp(`edge-${key}-${edge}`) })
+        screen.getByLabelText(new RegExp(`edge-${key}-${edge}`))
       );
       expect(mockClick).toHaveBeenLastCalledWith({
         type: 'Edge',
