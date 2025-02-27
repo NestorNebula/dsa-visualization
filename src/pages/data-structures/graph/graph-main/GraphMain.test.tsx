@@ -8,7 +8,7 @@ const { result } = renderHook(() => useGraphs());
 const { graphs, graph } = result.current;
 const activeGraph = graphs[graph.active];
 activeGraph.removeVertex = vi.fn();
-activeGraph.removeVertex = vi.fn();
+activeGraph.removeEdge = vi.fn();
 beforeEach(() => {
   render(<GraphMain graphs={graphs} graph={graph} />);
 });
@@ -26,9 +26,9 @@ describe('graphmain', () => {
       const vertice = activeGraph.vertices[key];
       for (let i = 0; i < vertice.edges.length; i++) {
         expect(
-          screen.queryByRole('button', {
-            name: new RegExp(`edge-${vertice.value}-${vertice.edges[i]}`),
-          })
+          screen.queryByLabelText(
+            new RegExp(`edge-${vertice.value}-${vertice.edges[i]}`)
+          )
         ).toBeInTheDocument();
       }
     }
@@ -52,13 +52,11 @@ describe('graphmain', () => {
     await user.click(screen.getByRole('button', { name: /add edge/i }));
     await user.type(screen.getByLabelText(/other vertex value/i), '3');
     await user.click(screen.getByRole('button', { name: /confirm/i }));
-    expect(
-      screen.queryByRole('button', { name: 'edge-4-3' })
-    ).toBeInTheDocument();
+    expect(screen.queryByLabelText('edge-4-3')).toBeInTheDocument();
   });
 
   it('calls removeEdge', async () => {
-    await user.click(screen.getByRole('button', { name: 'edge-4-3' }));
+    await user.click(screen.getByLabelText('edge-4-3'));
     await user.click(screen.getByRole('button', { name: /remove edge/i }));
     expect(activeGraph.removeEdge).toHaveBeenCalledWith(4, 3);
   });
