@@ -48,6 +48,13 @@ interface HeapMethods extends CommonMethods {
   revert(): void;
 }
 
+interface GraphMethods extends CommonMethods {
+  addVertex(value: string | number): void;
+  removeVertex(value: string | number): void;
+  addEdge(firstValue: string | number, secondValue: string | number): void;
+  removeEdge(firstValue: string | number, secondValue: string | number): void;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -57,4 +64,5 @@ export type {
   QueueMethods,
   BinaryTreeMethods,
   HeapMethods,
+  GraphMethods,
 };
