@@ -20,6 +20,9 @@ function useHeaps(): { heaps: Heap[]; heap: HeapMethods } {
 
   const removeHeap = (index: number) => {
     update(methods.remove(heaps, index));
+    if (active === index) {
+      setActive(index > 0 ? index - 1 : 0);
+    }
   };
 
   const addValue = (value: number) => {
