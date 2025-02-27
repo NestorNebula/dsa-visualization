@@ -7,6 +7,7 @@ import linkArrow from './link-arrow.svg';
 import minus from './minus.svg';
 import plus from './plus.svg';
 import resource from './resource.svg';
+import revert from './revert.svg';
 
 export {
   arrowLeft,
@@ -18,4 +19,5 @@ export {
   minus,
   plus,
   resource,
+  revert,
 };
