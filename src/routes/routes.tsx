@@ -9,6 +9,7 @@ import Stack from '@pages/data-structures/stack/Stack';
 import Queue from '@pages/data-structures/queue/Queue';
 import BinaryTree from '@pages/data-structures/binary-tree/BinaryTree';
 import Heap from '@pages/data-structures/heap/Heap';
+import Graph from '@pages/data-structures/graph/Graph';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -53,6 +54,10 @@ const routes: RouteObject[] = [
       {
         path: 'data-structures/heap',
         element: <Heap />,
+      },
+      {
+        path: 'data-structures/graph',
+        element: <Graph />,
       },
       {
         path: '*',
