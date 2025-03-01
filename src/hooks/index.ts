@@ -3,6 +3,7 @@ import useBinaryTrees from './use-binarytrees/useBinaryTrees';
 import useGraphs from './use-graphs/useGraphs';
 import useHashMaps from './use-hashmaps/useHashMaps';
 import useHeaps from './use-heaps/useHeaps';
+import useInterval from './use-interval/useInterval';
 import useLinkedLists from './use-linked-lists/useLinkedLists';
 import useLocalStorage from './use-local-storage/useLocalStorage';
 import useQueues from './use-queues/useQueues';
@@ -14,6 +15,7 @@ export {
   useGraphs,
   useHashMaps,
   useHeaps,
+  useInterval,
   useLinkedLists,
   useLocalStorage,
   useQueues,
