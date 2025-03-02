@@ -11,6 +11,7 @@ import BinaryTree from '@pages/data-structures/binary-tree/BinaryTree';
 import Heap from '@pages/data-structures/heap/Heap';
 import Graph from '@pages/data-structures/graph/Graph';
 import Algorithms from '@pages/algorithms/Algorithms';
+import BubbleSort from '@pages/algorithms/bubble-sort/BubbleSort';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -63,6 +64,10 @@ const routes: RouteObject[] = [
       {
         path: 'algorithms',
         element: <Algorithms />,
+      },
+      {
+        path: 'algorithms/bubble-sort',
+        element: <BubbleSort />,
       },
       {
         path: '*',
