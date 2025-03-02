@@ -70,6 +70,12 @@ interface BubbleSortMethods extends CommonSortingMethods {
   checkDone: number;
 }
 
+interface SelectionSortMethods extends CommonSortingMethods {
+  index: number;
+  minIndex: number;
+  lastChecked: number;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -81,4 +87,5 @@ export type {
   HeapMethods,
   GraphMethods,
   BubbleSortMethods,
+  SelectionSortMethods,
 };
