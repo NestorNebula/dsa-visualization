@@ -62,11 +62,12 @@ interface CommonSortingMethods {
   stop: () => void;
   setDelay: (delay: number) => void;
   sortedArray: Array;
+  done: boolean;
 }
 
 interface BubbleSortMethods extends CommonSortingMethods {
-  toDo: number;
-  done: number;
+  checkToDo: number;
+  checkDone: number;
 }
 
 export type {
