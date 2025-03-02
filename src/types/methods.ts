@@ -1,3 +1,5 @@
+import type { Array } from '@services/data-structures';
+
 interface CommonMethods {
   active: number;
   set: (index: number) => void;
@@ -55,6 +57,18 @@ interface GraphMethods extends CommonMethods {
   removeEdge(firstValue: string | number, secondValue: string | number): void;
 }
 
+interface CommonSortingMethods {
+  start: () => void;
+  stop: () => void;
+  setDelay: (delay: number) => void;
+  sortedArray: Array;
+}
+
+interface BubbleSortMethods extends CommonSortingMethods {
+  toDo: number;
+  done: number;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -65,4 +79,5 @@ export type {
   BinaryTreeMethods,
   HeapMethods,
   GraphMethods,
+  BubbleSortMethods,
 };
