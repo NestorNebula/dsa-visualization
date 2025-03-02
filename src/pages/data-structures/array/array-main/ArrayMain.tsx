@@ -37,7 +37,7 @@ function ArrayMain({
         {updateItem ? (
           <Form
             onSubmit={() => {
-              item.update(value);
+              item.update(Number.isInteger(+value) ? +value : value);
               setUpdateItem(false);
             }}
             name="Confirm Update"
@@ -85,7 +85,7 @@ function ArrayMain({
         {addItem ? (
           <Form
             onSubmit={() => {
-              array.push(value);
+              array.push(Number.isInteger(+value) ? +value : value);
               setAddItem(false);
             }}
             name={`Confirm adding ${value} in the array`}
