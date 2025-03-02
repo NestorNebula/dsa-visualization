@@ -11,8 +11,8 @@ function StructureList({
 }: {
   active: number;
   setActive: (index: number) => void;
-  remove: (index: number) => void;
-  add: () => void;
+  remove?: (index: number) => void;
+  add?: () => void;
   children?: JSX.Element | JSX.Element[];
 }) {
   return (
@@ -21,12 +21,14 @@ function StructureList({
         Array.isArray(children) ? (
           children.map((c, i) => (
             <S.Structure key={`array-structure${i}`}>
-              <S.Delete
-                aria-label="delete data structure"
-                onClick={() => remove(i)}
-              >
-                <img src={close} alt="delete" />
-              </S.Delete>
+              {remove && (
+                <S.Delete
+                  aria-label="delete data structure"
+                  onClick={() => remove(i)}
+                >
+                  <img src={close} alt="delete" />
+                </S.Delete>
+              )}
               <S.StructureButton
                 aria-label={
                   i === active
@@ -41,12 +43,14 @@ function StructureList({
           ))
         ) : (
           <S.Structure>
-            <S.Delete
-              aria-label="delete data structure"
-              onClick={() => remove(0)}
-            >
-              <img src={close} alt="delete" />
-            </S.Delete>
+            {remove && (
+              <S.Delete
+                aria-label="delete data structure"
+                onClick={() => remove(0)}
+              >
+                <img src={close} alt="delete" />
+              </S.Delete>
+            )}
             <S.StructureButton aria-label="active data structure">
               {children}
             </S.StructureButton>
@@ -55,9 +59,11 @@ function StructureList({
       ) : (
         <></>
       )}
-      <S.Add aria-label="add new data structure" onClick={add}>
-        <img src={plus} alt="add" />
-      </S.Add>
+      {add && (
+        <S.Add aria-label="add new data structure" onClick={add}>
+          <img src={plus} alt="add" />
+        </S.Add>
+      )}
     </S.StructureList>
   );
 }

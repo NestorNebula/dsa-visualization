@@ -11,8 +11,8 @@ function Sidebar<Type>({
   methods: {
     active: number;
     set: (index: number) => void;
-    remove: (index: number) => void;
-    add: () => void;
+    remove?: (index: number) => void;
+    add?: () => void;
   };
   getPrototype: (ds: Type, index: number) => JSX.Element;
 }) {
