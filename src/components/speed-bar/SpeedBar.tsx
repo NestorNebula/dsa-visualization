@@ -1,7 +1,7 @@
 import { forward, pause, play } from '@assets/icons';
 import * as S from './SpeedBar.styles';
 
-type Status = 'Active' | 'Faster' | 'Paused' | 'Done' | 'Failed';
+export type Status = 'Active' | 'Faster' | 'Paused' | 'Done' | 'Failed';
 
 function SpeedBar({
   status,
