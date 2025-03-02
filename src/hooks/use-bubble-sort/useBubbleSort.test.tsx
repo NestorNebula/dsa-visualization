@@ -5,7 +5,7 @@ import { Array } from '@services/data-structures';
 import timeoutTest from '@services/timeout-test';
 
 const array = new Array([4, 2, 3, 1]);
-const sortedArray = [1, 2, 3, 4];
+const sortedArray = new Array([1, 2, 3, 4]);
 
 describe('usebubblesort', () => {
   it("doesn't do anything while start hasn't been called", async () => {
@@ -20,12 +20,11 @@ describe('usebubblesort', () => {
   });
 
   it('sorts array after clicking on start', async () => {
-    const { result } = renderHook(() => useBubbleSort(array, 100));
+    const { result } = renderHook(() => useBubbleSort(array, 10));
     act(() => result.current.start());
-    let count = 0;
-    while (!result.current.done && count < 3) {
+    while (!result.current.done) {
       await act(async () => {
-        await timeoutTest(() => count++, 1000);
+        await timeoutTest(() => undefined, 20);
       });
     }
     expect(result.current.done).toBeTruthy();
