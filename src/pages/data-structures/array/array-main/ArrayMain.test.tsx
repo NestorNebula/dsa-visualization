@@ -80,6 +80,6 @@ describe('array', () => {
     await user.click(screen.getByRole('button', { name: /add/i }));
     await user.type(screen.getByLabelText(/add item/i), '26');
     await user.click(screen.getByRole('button', { name: /confirm/i }));
-    expect(arr.push).toHaveBeenCalledWith('26');
+    expect(arr.push).toHaveBeenCalledWith(26);
   });
 });
