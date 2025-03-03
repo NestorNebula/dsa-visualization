@@ -4,6 +4,7 @@ import useBubbleSort from './use-bubble-sort/useBubbleSort';
 import useGraphs from './use-graphs/useGraphs';
 import useHashMaps from './use-hashmaps/useHashMaps';
 import useHeaps from './use-heaps/useHeaps';
+import useInsertionSort from './use-insertion-sort/useInsertionSort';
 import useInterval from './use-interval/useInterval';
 import useLinkedLists from './use-linked-lists/useLinkedLists';
 import useLocalStorage from './use-local-storage/useLocalStorage';
@@ -18,6 +19,7 @@ export {
   useGraphs,
   useHashMaps,
   useHeaps,
+  useInsertionSort,
   useInterval,
   useLinkedLists,
   useLocalStorage,
