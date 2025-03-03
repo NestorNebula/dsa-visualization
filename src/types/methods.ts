@@ -76,6 +76,11 @@ interface SelectionSortMethods extends CommonSortingMethods {
   lastChecked: number;
 }
 
+interface InsertionSortMethods extends CommonSortingMethods {
+  index: number;
+  lastChecked: number;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -88,4 +93,5 @@ export type {
   GraphMethods,
   BubbleSortMethods,
   SelectionSortMethods,
+  InsertionSortMethods,
 };
