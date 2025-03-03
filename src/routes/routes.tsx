@@ -12,6 +12,7 @@ import Heap from '@pages/data-structures/heap/Heap';
 import Graph from '@pages/data-structures/graph/Graph';
 import Algorithms from '@pages/algorithms/Algorithms';
 import BubbleSort from '@pages/algorithms/bubble-sort/BubbleSort';
+import SelectionSort from '@pages/algorithms/selection-sort/SelectionSort';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -68,6 +69,10 @@ const routes: RouteObject[] = [
       {
         path: 'algorithms/bubble-sort',
         element: <BubbleSort />,
+      },
+      {
+        path: 'algorithms/selection-sort',
+        element: <SelectionSort />,
       },
       {
         path: '*',
