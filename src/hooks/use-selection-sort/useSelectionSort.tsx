@@ -14,7 +14,7 @@ function useSelectionSort(array: Array, delay?: number): SelectionSortMethods {
 
   function sortArray() {
     const indexToCheck = lastChecked + 1;
-    if (!sortedArray[indexToCheck]) {
+    if (sortedArray[indexToCheck] === undefined) {
       if (minIndex !== index) {
         const tempArray = new Array(sortedArray);
         [tempArray[index], tempArray[minIndex]] = [
