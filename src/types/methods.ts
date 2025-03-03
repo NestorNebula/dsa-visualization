@@ -83,7 +83,6 @@ interface InsertionSortMethods extends CommonSortingMethods {
 
 interface MergeSortMethods extends CommonSortingMethods {
   levels: { array: Array; isSorted: boolean }[][];
-  comparisonIndexes: [number, number] | null;
   sortedSubarray: Array | null;
 }
 
