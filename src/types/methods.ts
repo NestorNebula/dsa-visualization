@@ -81,6 +81,12 @@ interface InsertionSortMethods extends CommonSortingMethods {
   lastChecked: number;
 }
 
+interface MergeSortMethods extends CommonSortingMethods {
+  levels: { array: Array; isSorted: boolean }[][];
+  comparisonIndexes: [number, number] | null;
+  sortedSubarray: Array;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -94,4 +100,5 @@ export type {
   BubbleSortMethods,
   SelectionSortMethods,
   InsertionSortMethods,
+  MergeSortMethods,
 };
