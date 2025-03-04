@@ -17,6 +17,8 @@ function useMergeSort(array: Array, delay?: number): MergeSortMethods {
     const lvls = levels.map((l) => l);
     if (lvls.length === 1 && lvls[0][0].isSorted) {
       setSortedArray(lvls[0][0].array);
+      lvls.pop();
+      setLevels(lvls);
       setDone(true);
       setActive(false);
       end();
