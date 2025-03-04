@@ -20,7 +20,7 @@ describe('usemergesort', () => {
     const { result } = renderHook(() => useMergeSort(array, 10));
     act(() => result.current.start());
     while (!result.current.done) {
-      await act(async () => await timeoutTest(() => undefined, 20));
+      await act(async () => await timeoutTest(() => undefined, 10));
     }
     expect(JSON.stringify(result.current.sortedArray)).toBe(
       JSON.stringify(sortedArray)
