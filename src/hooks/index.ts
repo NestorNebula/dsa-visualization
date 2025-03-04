@@ -8,6 +8,7 @@ import useInsertionSort from './use-insertion-sort/useInsertionSort';
 import useInterval from './use-interval/useInterval';
 import useLinkedLists from './use-linked-lists/useLinkedLists';
 import useLocalStorage from './use-local-storage/useLocalStorage';
+import useMergeSort from './use-merge-sort/useMergeSort';
 import useQueues from './use-queues/useQueues';
 import useSelectionSort from './use-selection-sort/useSelectionSort';
 import useStacks from './use-stacks/useStacks';
@@ -23,6 +24,7 @@ export {
   useInterval,
   useLinkedLists,
   useLocalStorage,
+  useMergeSort,
   useQueues,
   useSelectionSort,
   useStacks,
