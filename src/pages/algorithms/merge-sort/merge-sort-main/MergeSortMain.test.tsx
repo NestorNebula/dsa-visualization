@@ -12,7 +12,7 @@ beforeEach(() => {
 describe('mergesortmain', () => {
   it('renders array elements with paused status', () => {
     for (let i = 0; i < array.length; i++) {
-      expect(screen.queryByText(array[i])).toBeInTheDocument();
+      expect(screen.queryAllByText(array[i])).toHaveLength(2);
     }
     expect(screen.queryByText('Paused')).toBeInTheDocument();
   });

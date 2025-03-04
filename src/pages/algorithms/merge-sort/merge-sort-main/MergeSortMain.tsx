@@ -52,14 +52,13 @@ function MergeSortMain({ array }: { array: Array }) {
       />
       <SpeedBar status={status} setStatus={updateStatus} />
       <Prototype array={mergeSort.sortedArray} />
-      {mergeSort.levels.length > 1 &&
-        mergeSort.levels.map((l, lI) => (
-          <S.Level key={`level-${lI}`}>
-            {l.map((obj, objI) => (
-              <Prototype key={`level-${lI}-array-${objI}`} array={obj.array} />
-            ))}
-          </S.Level>
-        ))}
+      {mergeSort.levels.map((l, lI) => (
+        <S.Level key={`level-${lI}`}>
+          {l.map((obj, objI) => (
+            <Prototype key={`level-${lI}-array-${objI}`} array={obj.array} />
+          ))}
+        </S.Level>
+      ))}
       {mergeSort.sortedSubarray && (
         <Prototype array={mergeSort.sortedSubarray} />
       )}
