@@ -1,4 +1,4 @@
-import type { Array } from '@services/data-structures';
+import type { Array, BinaryTree } from '@services/data-structures';
 
 interface CommonMethods {
   active: number;
@@ -98,6 +98,10 @@ interface LinearSearchMethods extends CommonSearchingMethods {
   checked: number;
 }
 
+interface BinarySearchMethods extends CommonSearchingMethods {
+  checked: typeof BinaryTree.prototype.root;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -113,4 +117,5 @@ export type {
   InsertionSortMethods,
   MergeSortMethods,
   LinearSearchMethods,
+  BinarySearchMethods,
 };
