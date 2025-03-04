@@ -13,7 +13,7 @@ class Array<Type = any> {
   }
   shift(): Type | undefined {
     const item = this[0];
-    if (!item) return item;
+    if (item === undefined) return item;
     for (let i = 0; i < this.length; i++) {
       this[i] = this[i + 1];
     }
