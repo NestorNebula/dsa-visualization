@@ -57,6 +57,7 @@ function LinearSearchMain({ array }: { array: Array }) {
             onSubmit={() => {
               if (tempValue) {
                 setValue(Number.isInteger(+tempValue) ? +tempValue : tempValue);
+                if (value !== tempValue) setStatus('Paused');
               }
               setOpened(false);
             }}
