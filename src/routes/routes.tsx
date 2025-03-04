@@ -14,6 +14,7 @@ import Algorithms from '@pages/algorithms/Algorithms';
 import BubbleSort from '@pages/algorithms/bubble-sort/BubbleSort';
 import SelectionSort from '@pages/algorithms/selection-sort/SelectionSort';
 import InsertionSort from '@pages/algorithms/insertion-sort/InsertionSort';
+import MergeSort from '@pages/algorithms/merge-sort/MergeSort';
 import Error from '@pages/error/Error';
 import Sperror from 'sperror';
 
@@ -78,6 +79,10 @@ const routes: RouteObject[] = [
       {
         path: 'algorithms/insertion-sort',
         element: <InsertionSort />,
+      },
+      {
+        path: 'algorithms/merge-sort',
+        element: <MergeSort />,
       },
       {
         path: '*',
