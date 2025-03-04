@@ -86,6 +86,18 @@ interface MergeSortMethods extends CommonSortingMethods {
   sortedSubarray: Array | null;
 }
 
+interface CommonSearchingMethods {
+  found: boolean;
+  done: boolean;
+  start: () => void;
+  stop: () => void;
+  setDelay: (delay: number) => void;
+}
+
+interface LinearSearchMethods extends CommonSearchingMethods {
+  checked: number;
+}
+
 export type {
   ArrayMethods,
   ArrayItemMethods,
@@ -100,4 +112,5 @@ export type {
   SelectionSortMethods,
   InsertionSortMethods,
   MergeSortMethods,
+  LinearSearchMethods,
 };
