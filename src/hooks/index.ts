@@ -1,4 +1,5 @@
 import useArrays from './use-arrays/useArrays';
+import useBinarySearch from './use-binary-search/useBinarySearch';
 import useBinaryTrees from './use-binarytrees/useBinaryTrees';
 import useBubbleSort from './use-bubble-sort/useBubbleSort';
 import useGraphs from './use-graphs/useGraphs';
@@ -16,6 +17,7 @@ import useStacks from './use-stacks/useStacks';
 
 export {
   useArrays,
+  useBinarySearch,
   useBinaryTrees,
   useBubbleSort,
   useGraphs,
