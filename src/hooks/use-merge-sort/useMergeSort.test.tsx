@@ -18,7 +18,7 @@ describe('usemergesort', () => {
 
   it('sorts array after calling start', async () => {
     const { result } = renderHook(() => useMergeSort(array, 10));
-    act(() => result.current.start);
+    act(() => result.current.start());
     while (!result.current.done) {
       await act(async () => await timeoutTest(() => undefined, 20));
     }
