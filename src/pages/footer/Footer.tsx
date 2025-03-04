@@ -22,6 +22,12 @@ function Footer() {
         >
           Machine learning icons created by Becris - Flaticon
         </a>
+        <a
+          href="https://www.flaticon.com/free-icons/arrows"
+          title="arrows icons"
+        >
+          Arrows icons created by Creative Stall Premium - Flaticon
+        </a>
       </S.Cd>
     </S.Footer>
   );

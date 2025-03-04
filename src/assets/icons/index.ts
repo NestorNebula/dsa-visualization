@@ -1,4 +1,4 @@
-import arrowLeft from './arrow-left.svg';
+import arrowLeft from './arrow-left.png';
 import check from './check.svg';
 import close from './close.svg';
 import forward from './forward.svg';
