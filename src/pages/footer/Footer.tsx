@@ -19,12 +19,16 @@ function Footer() {
         <a
           href="https://www.flaticon.com/free-icons/machine-learning"
           title="machine learning icons"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Machine learning icons created by Becris - Flaticon
         </a>
         <a
           href="https://www.flaticon.com/free-icons/arrows"
           title="arrows icons"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Arrows icons created by Creative Stall Premium - Flaticon
         </a>
