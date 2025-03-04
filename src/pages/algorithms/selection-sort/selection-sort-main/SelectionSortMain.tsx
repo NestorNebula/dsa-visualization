@@ -8,12 +8,15 @@ import type { Array } from '@services/data-structures';
 
 function SelectionSortMain({ array }: { array: Array }) {
   const [status, setStatus] = useState<Status>('Paused');
-  const updateStatus = (status: Status) => {
+  const updateStatus = (newStatus: Status) => {
     if (['Done', 'Failed'].includes(status)) return;
     for (let i = 0; i < array.length; i++) {
-      if (!Number.isInteger(array[i])) return;
+      if (!Number.isInteger(array[i])) {
+        setStatus('Failed');
+        return;
+      }
     }
-    setStatus(status);
+    setStatus(newStatus);
   };
 
   const selectionSort = useSelectionSort(array);
