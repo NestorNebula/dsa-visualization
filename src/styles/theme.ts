@@ -5,6 +5,8 @@ const theme = {
   lightRed: '#F08E7A',
   white: '#FAF5F4',
   green: '#7DD4AA',
+  darkGrey: '#91A3B0',
+  lightGrey: '#DADBDE',
 };
 
 export default theme;
