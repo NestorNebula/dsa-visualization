@@ -67,7 +67,7 @@ function HashMapMain({
           </>
         )}
       </OptionsList>
-      <Prototype hashMap={hashMaps[hashMap.active]} />
+      <Prototype hashMap={hashMaps[hashMap.active]} isMain />
     </S.HashMapMain>
   );
 }
