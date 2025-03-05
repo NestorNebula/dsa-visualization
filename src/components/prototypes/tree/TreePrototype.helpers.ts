@@ -8,18 +8,53 @@ function getArrayRepresentation(tree: Tree): Array<number | null> {
   }
   const array: Array<number | null> = new Array();
   if (tree.root) {
-    const queue: Queue<typeof tree.root | null> = new Queue();
-    queue.add(tree.root);
+    const queue: Queue<{
+      subtree: typeof tree.root;
+      parentPosition?: number;
+      isRightChild?: boolean;
+    }> = new Queue();
+    queue.add({ subtree: tree.root });
     while (queue.head) {
-      if (queue.head.value) {
-        array.push(queue.head.value.value);
-        queue.add(queue.head.value.left);
-        queue.add(queue.head.value.right);
+      const value = queue.head.value;
+      if (value.parentPosition === undefined) {
+        array.push(value.subtree.value);
+        if (value.subtree.left)
+          queue.add({ subtree: value.subtree.left, parentPosition: 0 });
+        if (value.subtree.right)
+          queue.add({
+            subtree: value.subtree.right,
+            parentPosition: 0,
+            isRightChild: true,
+          });
       } else {
-        array.push(null);
+        const position =
+          value.parentPosition * 2 + (value.isRightChild ? 2 : 1);
+        array[position] = value.subtree.value;
+        if (value.subtree.left)
+          queue.add({ subtree: value.subtree.left, parentPosition: position });
+        if (value.subtree.right)
+          queue.add({
+            subtree: value.subtree.right,
+            parentPosition: position,
+            isRightChild: true,
+          });
       }
       queue.remove();
     }
+  }
+  let max = 0;
+  for (const key in array) {
+    if (Number.isInteger(+key) && +key + 1 > max) {
+      max = +key + 1;
+    }
+  }
+  array.length = max;
+  max = 1;
+  while (array.length > max) {
+    max *= 2;
+  }
+  if (array.length < max) {
+    array.length = max;
   }
   return array;
 }
