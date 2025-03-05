@@ -5,7 +5,7 @@ const Box = styled.div<{ $active?: boolean; $button?: boolean }>`
     props.$active ? props.theme.lightBlue : 'transparent'};
 
   &:hover {
-    cursor: ${(props) => (props.$button ? 'pointer' : 'default')};
+    cursor: ${(props) => (props.$button ? 'pointer' : 'inherit')};
   }
 `;
 
