@@ -4,6 +4,11 @@ const LinkedList = styled.div`
   & > div {
     padding: 1rem;
     display: flex;
+
+    &:not(:has(div))::after {
+      position: relative;
+      content: 'Empty Linked List';
+    }
   }
 `;
 const Item = styled.div`

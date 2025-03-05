@@ -10,7 +10,7 @@ const Array = styled.div`
 
       &::after {
         position: relative;
-        content: 'New Array';
+        content: 'Empty Array';
       }
     }
   }
