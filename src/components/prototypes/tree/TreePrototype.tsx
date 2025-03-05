@@ -1,4 +1,4 @@
-import { createRef, useState, useEffect, useRef } from 'react';
+import { createRef, useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Array } from '@services/data-structures';
 import { getArrayRepresentation, type Tree } from './TreePrototype.helpers';
 import Node from '@components/node/Node';
@@ -31,7 +31,7 @@ function TreePrototype({
     let rowContent: JSX.Element[] = [];
 
     for (let i = 0; i < arrayRepresentation.length; i++) {
-      if (arrayRepresentation[i] !== null) {
+      if (arrayRepresentation[i] !== undefined) {
         const ref = refs.current[i] ?? createRef<HTMLDivElement>();
         if (!refs.current[i]) {
           refs.current.push(ref);
@@ -80,28 +80,37 @@ function TreePrototype({
         max *= 2;
       }
     }
+
+    const [renderLinks, setRenderLinks] = useState(0);
+    useLayoutEffect(() => {
+      const updateRenderLinks = () => setRenderLinks(Math.random() * 1000000);
+
+      window.addEventListener('resize', () => updateRenderLinks());
+
+      return () =>
+        window.removeEventListener('resize', () => updateRenderLinks());
+    }, []);
+
     useEffect(() => {
-      if (coordinates.length !== arrayRepresentation.length) {
-        const newCoordinates: Array<{ x: number; y: number } | null> =
-          new Array();
-        for (let i = 0; i < arrayRepresentation.length; i++) {
-          const self = refs.current[i];
-          const parent = refs.current[getParent(i)];
-          if (parent && parent.current && self && self.current) {
-            const x =
-              parent.current.getBoundingClientRect().left -
-              self.current.getBoundingClientRect().left;
-            const y =
-              parent.current.getBoundingClientRect().bottom -
-              self.current.getBoundingClientRect().top;
-            newCoordinates.push({ x, y });
-          } else {
-            newCoordinates.push(null);
-          }
+      const newCoordinates: Array<{ x: number; y: number } | null> =
+        new Array();
+      for (let i = 0; i < arrayRepresentation.length; i++) {
+        const self = refs.current[i];
+        const parent = refs.current[getParent(i)];
+        if (parent && parent.current && self && self.current) {
+          const x =
+            parent.current.getBoundingClientRect().left -
+            self.current.getBoundingClientRect().left;
+          const y =
+            parent.current.getBoundingClientRect().bottom -
+            self.current.getBoundingClientRect().bottom;
+          newCoordinates.push({ x, y });
+        } else {
+          newCoordinates.push(null);
         }
-        setCoordinates(newCoordinates);
       }
-    }, [window]);
+      setCoordinates(newCoordinates);
+    }, [renderLinks, arrayRepresentation.length, arrayRepresentation[0]]);
 
     return treeContent;
   };
