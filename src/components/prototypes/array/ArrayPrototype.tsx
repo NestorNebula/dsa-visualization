@@ -16,13 +16,15 @@ function Prototype({
   const getArrayContent = () => {
     const arrayContent: JSX.Element[] = [];
     for (let i = 0; i < array.length; i++) {
+      const options = getOptions && getOptions(i);
       arrayContent.push(
         <S.Item key={`array-content${i}`}>
           <Box
+            active={!!options?.props.children}
             value={array[i]}
             onClick={onItemClick ? () => onItemClick(i) : undefined}
           />
-          {getOptions ? getOptions(i) : <></>}
+          {options}
         </S.Item>
       );
     }
