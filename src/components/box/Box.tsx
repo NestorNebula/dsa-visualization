@@ -10,7 +10,7 @@ function Box({
   active?: boolean;
 }) {
   return (
-    <S.Box $active={active} onClick={onClick ?? undefined}>
+    <S.Box $active={active} $button={!!onClick} onClick={onClick ?? undefined}>
       {value}
     </S.Box>
   );
