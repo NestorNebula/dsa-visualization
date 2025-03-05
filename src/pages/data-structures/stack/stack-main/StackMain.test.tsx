@@ -28,7 +28,9 @@ describe('stackmain', () => {
     const page = render(<StackMain stacks={stacks} stack={stack} />);
     const user = userEvent.setup();
     const lastItem = stacks[stack.active][stacks[stack.active].size - 1];
-    await user.click(screen.getByRole('button', { name: /remove last item/i }));
+    await user.click(
+      screen.getByRole('button', { name: /remove top of the stack/i })
+    );
     page.rerender(<StackMain stacks={stacks} stack={stack} />);
     expect(screen.queryByText(lastItem)).not.toBeInTheDocument();
   });

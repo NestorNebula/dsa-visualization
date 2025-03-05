@@ -52,7 +52,7 @@ function StackMain({
         <OptionsButton
           onClick={() => stack.pop()}
           textVersion
-          label="Remove Last Item"
+          label="Remove Top of the Stack"
         />
       </OptionsList>
       <Prototype stack={stacks[stack.active]} />
