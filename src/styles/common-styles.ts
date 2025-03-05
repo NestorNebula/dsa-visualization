@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
 const CommonDSA = styled.main`
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5rem;
+
+  @media (min-width: 800px) {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 1fr 3fr;
+  }
 `;
 
 const CommonDSAMain = styled.section`
