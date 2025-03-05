@@ -7,6 +7,8 @@ const theme = {
   green: '#7DD4AA',
   darkGrey: '#91A3B0',
   lightGrey: '#DADBDE',
+
+  DSAColumns: '1fr 3fr',
 };
 
 export default theme;
