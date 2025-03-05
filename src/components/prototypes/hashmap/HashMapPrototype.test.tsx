@@ -6,7 +6,7 @@ import { LinkedList } from '@services/data-structures';
 
 const hashMap = dataStructures.hashMaps[0];
 beforeEach(() => {
-  render(<HashMapPrototype hashMap={hashMap} />);
+  render(<HashMapPrototype hashMap={hashMap} isMain />);
 });
 
 describe('hashmapprototype', () => {
