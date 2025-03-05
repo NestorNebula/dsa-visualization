@@ -1,5 +1,6 @@
 import styled from 'styled-components';
+import { CommonDSAMain } from '@styles/common-styles';
 
-const BinaryTreeMain = styled.section``;
+const BinaryTreeMain = styled(CommonDSAMain)``;
 
 export { BinaryTreeMain };

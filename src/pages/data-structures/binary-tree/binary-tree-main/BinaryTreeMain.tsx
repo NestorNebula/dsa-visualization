@@ -73,6 +73,9 @@ function BinaryTreeMain({
         />
       </OptionsList>
       <Prototype
+        key={`${binaryTree.active}-${value}-${
+          binaryTrees[binaryTree.active].root?.value
+        }`}
         tree={binaryTrees[binaryTree.active]}
         onNodeClick={setActiveValue}
         getOptions={activeValue ? getOptions : undefined}
