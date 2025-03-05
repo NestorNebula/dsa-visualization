@@ -30,7 +30,7 @@ class LinkedList<Type = any> {
           this.head = node.next;
         }
         if (!node.next) {
-          this.tail = null;
+          this.tail = previous ?? null;
         }
         return node;
       }
