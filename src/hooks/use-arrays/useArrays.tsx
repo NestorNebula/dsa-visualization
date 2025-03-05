@@ -16,12 +16,18 @@ function useArrays(): {
     (stored: Array) => new Array(stored)
   );
   const [array, setArray] = useState(0);
+  const updateArray = (index: number) => {
+    setArray(index);
+    setItem(null);
+  };
   const addArray = () => {
     update(methods.add(arrays, () => new Array()));
   };
   const removeArray = (index: number) => {
     update(methods.remove(arrays, index));
-    setArray(array - 1 >= 0 ? array - 1 : 0);
+    if (index === array) {
+      setArray(array - 1 >= 0 ? array - 1 : 0);
+    }
   };
   const pushItem = (value: any) => {
     const arrs = arrays.map((arr) => arr);
@@ -40,6 +46,9 @@ function useArrays(): {
   };
 
   const [item, setItem] = useState<number | null>(null);
+  const setActiveItem = (itm: number) => {
+    setItem(itm === item ? null : itm);
+  };
   const updateItem = (value: any) => {
     const arrs = arrays.map((arr) => arr);
     if (item) {
@@ -52,14 +61,14 @@ function useArrays(): {
     arrays,
     array: {
       active: array,
-      set: setArray,
+      set: updateArray,
       add: addArray,
       remove: removeArray,
       push: pushItem,
       shift: shiftItem,
       pop: popItem,
     },
-    item: { active: item, set: setItem, update: updateItem },
+    item: { active: item, set: setActiveItem, update: updateItem },
   };
 }
 
