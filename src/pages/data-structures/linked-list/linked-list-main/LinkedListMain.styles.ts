@@ -1,12 +1,6 @@
 import styled from 'styled-components';
+import { CommonDSAMain } from '@styles/common-styles';
 
-const LinkedListMain = styled.section`
-  display: flex;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  font-size: var(--fs-m);
-`;
+const LinkedListMain = styled(CommonDSAMain)``;
 
 export { LinkedListMain };

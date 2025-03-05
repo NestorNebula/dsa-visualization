@@ -1,8 +1,6 @@
 import styled from 'styled-components';
+import { CommonDSA } from '@styles/common-styles';
 
-const Array = styled.main`
-  display: grid;
-  grid-template-columns: ${(props) => props.theme.DSAColumns};
-`;
+const Array = styled(CommonDSA)``;
 
 export { Array };

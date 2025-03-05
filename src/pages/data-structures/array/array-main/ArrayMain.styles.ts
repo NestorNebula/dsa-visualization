@@ -1,11 +1,6 @@
 import styled from 'styled-components';
+import { CommonDSAMain } from '@styles/common-styles';
 
-const ArrayMain = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  font-size: var(--fs-m);
-`;
+const ArrayMain = styled(CommonDSAMain)``;
 
 export { ArrayMain };
