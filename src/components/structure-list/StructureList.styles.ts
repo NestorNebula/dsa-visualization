@@ -14,8 +14,7 @@ const Structure = styled.div`
 `;
 const StructureButton = styled.button``;
 const Delete = styled.button`
-  justify-self: end;
-
+  justify-self: start;
   & > img {
     min-width: 1.5rem;
   }
