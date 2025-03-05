@@ -8,6 +8,8 @@ function DSAHeader({ title, resource }: { title: string; resource: string }) {
       <S.Link
         href={resource}
         aria-label={`${title.toLowerCase()} resource's link`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <img
           src={resourceIcon}
