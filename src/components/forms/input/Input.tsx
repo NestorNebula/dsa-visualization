@@ -22,6 +22,7 @@ function Input({
         value={value}
         type={type}
         onChange={updateValue}
+        placeholder=""
       />
       <S.Label htmlFor={name}>{label}</S.Label>
     </S.Container>
