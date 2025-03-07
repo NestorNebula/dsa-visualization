@@ -6,7 +6,7 @@ const Sidebar = styled.aside`
   background-color: ${(props) => props.theme.lightGrey};
   height: fit-content;
   border-radius: 0.5rem;
-  overflow: scroll;
+  min-width: max-content;
 
   @media (min-width: 800px) {
     padding: 2.5rem;
