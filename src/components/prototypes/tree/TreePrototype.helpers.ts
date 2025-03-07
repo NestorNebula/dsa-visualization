@@ -4,7 +4,15 @@ export type Tree = BinaryTree | Heap;
 
 function getArrayRepresentation(tree: Tree): Array<number> {
   if (tree instanceof Heap) {
-    return tree.heap;
+    const array = new Array(tree.heap);
+    let max = 1;
+    while (array.length > max) {
+      max = max * 2 + 1;
+    }
+    if (array.length < max) {
+      array.length = max;
+    }
+    return array;
   }
   const array: Array<number> = new Array();
   if (tree.root) {
