@@ -5,13 +5,15 @@ function Node({
   value,
   onClick,
   ref,
+  active,
 }: {
   value: number | string;
   onClick?: () => void;
   ref?: RefObject<HTMLDivElement | null>;
+  active?: boolean;
 }) {
   return (
-    <S.Node onClick={onClick} ref={ref}>
+    <S.Node $active={active} $button={!!onClick} onClick={onClick} ref={ref}>
       {value}
     </S.Node>
   );
