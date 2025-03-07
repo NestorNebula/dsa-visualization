@@ -41,26 +41,27 @@ class BinaryTree {
       if (node.value === value) {
         if (previous) {
           if (previous.value > node.value) {
-            if (node.left) {
-              previous.left = node.left;
-              node.left.right = node.right;
-            } else {
-              previous.left = node.right;
-            }
+            this.#replaceByGreater(previous, node);
           } else {
-            if (node.right) {
-              previous.right = node.right;
-              node.right.left = node.left;
-            } else {
-              previous.right = node.left;
-            }
+            this.#replaceBySmaller(previous, node);
           }
         } else {
-          if (node.left) {
-            this.root = node.left;
-            node.left.right = this.root.right;
+          if (node.left && node.right) {
+            let smaller = node.left;
+            while (smaller.right) {
+              smaller = smaller.right;
+            }
+            let greater = node.right;
+            while (greater.left) {
+              greater = greater.left;
+            }
+            if (node.value - smaller.value > greater.value - node.value) {
+              this.#replaceByGreater(previous, node);
+            } else {
+              this.#replaceBySmaller(previous, node);
+            }
           } else {
-            this.root = node.right;
+            this.root = node.left ?? node.right;
           }
         }
         return node;
@@ -70,6 +71,82 @@ class BinaryTree {
         node = node.left;
       } else {
         node = node.right;
+      }
+    }
+  }
+  #replaceBySmaller(previous: Node | null, node: Node): void {
+    if (node.left) {
+      let newNode = node.left;
+      let prev = node;
+      while (newNode.right) {
+        prev = newNode;
+        newNode = newNode.right;
+      }
+      if (prev.value !== node.value) {
+        prev.right = null;
+      }
+      if (newNode.left) {
+        let lastNode = newNode.left;
+        while (lastNode.left) {
+          lastNode = lastNode.left;
+        }
+        if (prev.value !== node.value) {
+          lastNode.left = node.left;
+        }
+      } else {
+        if (prev.value !== node.value) {
+          newNode.left = node.left;
+        }
+      }
+      newNode.right = node.right;
+      if (previous) {
+        previous.right = newNode;
+      } else {
+        this.root = newNode;
+      }
+    } else {
+      if (previous) {
+        previous.right = node.right;
+      } else {
+        this.root = node.right;
+      }
+    }
+  }
+  #replaceByGreater(previous: Node | null, node: Node): void {
+    if (node.right) {
+      let newNode = node.right;
+      let prev = node;
+      while (newNode.left) {
+        prev = newNode;
+        newNode = newNode.left;
+      }
+      if (prev.value !== node.value) {
+        prev.left = null;
+      }
+      if (newNode.right) {
+        let lastNode = newNode.right;
+        while (lastNode.right) {
+          lastNode = lastNode.right;
+        }
+        if (prev.value !== node.value) {
+          lastNode.right = node.right;
+        }
+      } else {
+        if (prev.value !== node.value) {
+          newNode.right = node.right;
+        }
+      }
+      newNode.left = node.left;
+      if (previous) {
+        previous.left = newNode;
+      } else {
+        this.root = newNode;
+      }
+    } else {
+      if (previous) {
+        previous.left = node.left;
+      } else {
+        this.root = node.left;
       }
     }
   }
