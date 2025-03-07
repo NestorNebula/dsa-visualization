@@ -67,7 +67,10 @@ function BinaryTreeMain({
           />
         )}
         <OptionsButton
-          onClick={() => binaryTree.rebalance()}
+          onClick={() => {
+            binaryTree.rebalance();
+            setActiveValue(activeValue ? null : 0.5);
+          }}
           textVersion
           label="Rebalance"
         />
@@ -75,10 +78,10 @@ function BinaryTreeMain({
       <Prototype
         key={`${binaryTree.active}-${value}-${
           binaryTrees[binaryTree.active].root?.value
-        }`}
+        }-${activeValue}`}
         tree={binaryTrees[binaryTree.active]}
-        onNodeClick={setActiveValue}
-        getOptions={activeValue ? getOptions : undefined}
+        onNodeClick={(val) => setActiveValue(activeValue !== val ? val : null)}
+        getOptions={activeValue !== undefined ? getOptions : undefined}
       />
     </S.BinaryTreeMain>
   );

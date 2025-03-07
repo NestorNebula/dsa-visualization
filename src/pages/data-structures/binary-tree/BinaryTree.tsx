@@ -18,10 +18,14 @@ function BinaryTree() {
           remove: binaryTree.remove,
         }}
         getPrototype={(ds, i) => (
-          <Prototype key={`binary-tree-${i}`} tree={ds} />
+          <Prototype key={`binary-tree-${i}`} tree={ds} resume />
         )}
       />
-      <BinaryTreeMain binaryTrees={binaryTrees} binaryTree={binaryTree} />
+      <BinaryTreeMain
+        key={binaryTree.active}
+        binaryTrees={binaryTrees}
+        binaryTree={binaryTree}
+      />
     </S.BinaryTree>
   );
 }
