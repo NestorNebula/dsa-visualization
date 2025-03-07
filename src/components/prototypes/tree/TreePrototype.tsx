@@ -36,7 +36,7 @@ function TreePrototype({
       if (arrayRepresentation[i] !== undefined) {
         const ref = refs.current[i] ?? createRef<HTMLDivElement>();
         if (!refs.current[i]) {
-          refs.current.push(ref);
+          refs.current[i] = ref;
         }
         const parentLink = coordinates[i];
         const options = getOptions && getOptions(arrayRepresentation[i]);
@@ -73,7 +73,7 @@ function TreePrototype({
           </S.Container>
         );
       } else {
-        refs.current.push(null);
+        refs.current[i] = null;
         rowContent.push(<S.EmptyNode key={`binarytree-empty-${i}`} />);
       }
       if (rowContent.length === max || i === arrayRepresentation.length - 1) {
