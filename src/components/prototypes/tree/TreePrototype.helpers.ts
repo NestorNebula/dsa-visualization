@@ -51,7 +51,7 @@ function getArrayRepresentation(tree: Tree): Array<number | null> {
   array.length = max;
   max = 1;
   while (array.length > max) {
-    max *= 2;
+    max = max * 2 + 1;
   }
   if (array.length < max) {
     array.length = max;
