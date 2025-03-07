@@ -2,11 +2,11 @@ import { Array, BinaryTree, Heap, Queue } from '@services/data-structures';
 
 export type Tree = BinaryTree | Heap;
 
-function getArrayRepresentation(tree: Tree): Array<number | null> {
+function getArrayRepresentation(tree: Tree): Array<number> {
   if (tree instanceof Heap) {
     return tree.heap;
   }
-  const array: Array<number | null> = new Array();
+  const array: Array<number> = new Array();
   if (tree.root) {
     const queue: Queue<{
       subtree: typeof tree.root;

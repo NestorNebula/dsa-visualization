@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const TreePrototype = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 `;
 const Row = styled.div`
   display: grid;
@@ -23,5 +23,14 @@ const Link = styled.svg`
   left: 50%;
   overflow: visible;
 `;
+const TreeResume = styled.div`
+  display: flex;
+  gap: 0.5rem;
 
-export { TreePrototype, Row, Container, EmptyNode, Link };
+  & > div:not(:last-child)::after {
+    position: relative;
+    content: ', ';
+  }
+`;
+
+export { TreePrototype, Row, Container, EmptyNode, Link, TreeResume };

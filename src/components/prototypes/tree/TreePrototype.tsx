@@ -1,5 +1,5 @@
 import { createRef, useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { Array } from '@services/data-structures';
+import { Array, Heap } from '@services/data-structures';
 import { getArrayRepresentation, type Tree } from './TreePrototype.helpers';
 import Node from '@components/node/Node';
 import * as S from './TreePrototype.styles';
@@ -9,10 +9,12 @@ function TreePrototype({
   tree,
   onNodeClick,
   getOptions,
+  resume,
 }: {
   tree: Tree;
   onNodeClick?: (value: number) => void;
   getOptions?: (value: number) => JSX.Element;
+  resume?: boolean;
 }) {
   const arrayRepresentation = getArrayRepresentation(tree);
 
@@ -37,6 +39,7 @@ function TreePrototype({
           refs.current.push(ref);
         }
         const parentLink = coordinates[i];
+        const options = getOptions && getOptions(arrayRepresentation[i]);
         rowContent.push(
           <S.Container key={`binarytree-${i}-${arrayRepresentation[i]}`}>
             {parentLink ? (
@@ -64,8 +67,9 @@ function TreePrototype({
                   : undefined
               }
               ref={ref}
+              active={!!options?.props.children}
             />
-            {getOptions ? getOptions(arrayRepresentation[i]!) : <></>}
+            {options}
           </S.Container>
         );
       } else {
@@ -114,7 +118,39 @@ function TreePrototype({
 
     return treeContent;
   };
-  return <S.TreePrototype>{getTreeContent()}</S.TreePrototype>;
+
+  const getTreeResume = () => {
+    const resume: JSX.Element[] = [];
+    resume.push(
+      <header key={'tree-resume-header'}>
+        {tree instanceof Heap ? 'Heap:' : 'Binary Tree:'}
+      </header>
+    );
+    for (let i = 0; i < arrayRepresentation.length; i++) {
+      if (arrayRepresentation[i] !== undefined) {
+        resume.push(
+          <div key={`tree-resume-${i}-${arrayRepresentation[i]}`}>
+            {arrayRepresentation[i]}
+          </div>
+        );
+      }
+    }
+    if (resume.length === 1) {
+      resume.pop();
+      resume.push(
+        <div key={'empty-tree'}>
+          Empty {tree instanceof Heap ? 'Heap' : 'Binary Tree'}
+        </div>
+      );
+    }
+    return resume;
+  };
+
+  return !resume ? (
+    <S.TreePrototype>{getTreeContent()}</S.TreePrototype>
+  ) : (
+    <S.TreeResume>{getTreeResume()}</S.TreeResume>
+  );
 }
 
 export default TreePrototype;
