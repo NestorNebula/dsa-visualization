@@ -17,7 +17,9 @@ function Heap() {
           add: heap.add,
           remove: heap.remove,
         }}
-        getPrototype={(ds, i) => <Prototype key={`heap-${i}`} tree={ds} />}
+        getPrototype={(ds, i) => (
+          <Prototype key={`heap-${i}`} tree={ds} resume />
+        )}
       />
       <HeapMain heaps={heaps} heap={heap} />
     </S.Heap>

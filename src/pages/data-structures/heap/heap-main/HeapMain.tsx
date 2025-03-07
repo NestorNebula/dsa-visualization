@@ -55,7 +55,10 @@ function HeapMain({ heaps, heap }: { heaps: Heap[]; heap: HeapMethods }) {
           } heap`}
         />
       </OptionsList>
-      <Prototype tree={heaps[heap.active]} />
+      <Prototype
+        key={`${heaps[heap.active].heap}-${opened}`}
+        tree={heaps[heap.active]}
+      />
     </S.HeapMain>
   );
 }
