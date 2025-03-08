@@ -45,6 +45,18 @@ function SelectionSortMain({ array }: { array: Array }) {
     }
   }, [selectionSort.done]);
 
+  const isHighlighted = (index: number) => {
+    return index === selectionSort.minIndex;
+  };
+
+  const isCompared = (index: number) => {
+    return index === selectionSort.lastChecked + 1;
+  };
+
+  const isDone = (index: number) => {
+    return index < selectionSort.index;
+  };
+
   return (
     <S.SelectionSortMain>
       <DSAHeader
@@ -52,7 +64,12 @@ function SelectionSortMain({ array }: { array: Array }) {
         resource="https://www.geeksforgeeks.org/selection-sort-algorithm-2/"
       />
       <SpeedBar status={status} setStatus={updateStatus} />
-      <Prototype array={selectionSort.sortedArray} />
+      <Prototype
+        array={selectionSort.sortedArray}
+        isHighlighted={isHighlighted}
+        isCompared={isCompared}
+        isDone={isDone}
+      />
     </S.SelectionSortMain>
   );
 }

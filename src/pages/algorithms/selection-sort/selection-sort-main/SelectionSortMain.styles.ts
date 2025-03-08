@@ -1,5 +1,6 @@
 import styled from 'styled-components';
+import { CommonDSAMain } from '@styles/common-styles';
 
-const SelectionSortMain = styled.section``;
+const SelectionSortMain = styled(CommonDSAMain)``;
 
 export { SelectionSortMain };
