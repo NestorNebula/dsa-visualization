@@ -44,6 +44,14 @@ function MergeSortMain({ array }: { array: Array }) {
     }
   }, [mergeSort.done]);
 
+  const isHighlighted = (index: number) => {
+    return index === 0;
+  };
+
+  const isDone = (levelIndex: number, arrayIndex: number) => {
+    return mergeSort.levels[levelIndex][arrayIndex].isSorted;
+  };
+
   return (
     <S.MergeSortMain>
       <DSAHeader
@@ -51,12 +59,25 @@ function MergeSortMain({ array }: { array: Array }) {
         resource="https://www.geeksforgeeks.org/merge-sort/"
       />
       <SpeedBar status={status} setStatus={updateStatus} />
-      <Prototype array={mergeSort.sortedArray} />
+      <Prototype array={mergeSort.sortedArray} isDone={() => mergeSort.done} />
       {mergeSort.levels.map((l, lI) => (
         <S.Level key={`level-${lI}`}>
-          {l.map((obj, objI) => (
-            <Prototype key={`level-${lI}-array-${objI}`} array={obj.array} />
-          ))}
+          {l.map((obj, objI) => {
+            const highlighted = (index: number) =>
+              lI === mergeSort.levels.length - 1 &&
+              !!mergeSort.sortedSubarray &&
+              isHighlighted(index);
+            return (
+              <Prototype
+                key={`level-${lI}-array-${objI}`}
+                array={obj.array}
+                isHighlighted={highlighted}
+                isDone={(index: number) =>
+                  !highlighted(index) && isDone(lI, objI)
+                }
+              />
+            );
+          })}
         </S.Level>
       ))}
       {mergeSort.sortedSubarray && (
