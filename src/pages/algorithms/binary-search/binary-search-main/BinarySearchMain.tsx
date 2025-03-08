@@ -45,6 +45,33 @@ function BinarySearchMain({ bst }: { bst: BinaryTree }) {
     }
   }, [binarySearch.done]);
 
+  const isHighlighted = (value: number) => {
+    return value === binarySearch.checked?.value && !binarySearch.done;
+  };
+
+  function checkValidity(subtree: typeof bst.root): boolean {
+    if (!subtree) return true;
+    const left = checkValidity(subtree.left);
+    const right = checkValidity(subtree.right);
+    const main = subtree.value !== binarySearch.checked?.value;
+    return left && right && main;
+  }
+
+  const isValid = (value: number) => {
+    if (value === binarySearch.checked?.value) {
+      return true;
+    } else {
+      let node = bst.root;
+      while (node && node.value !== value) {
+        node = node.value > value ? node.left : node.right;
+      }
+      if (node) {
+        const result = checkValidity(node);
+        return !result ? result : undefined;
+      }
+    }
+  };
+
   return (
     <S.BinarySearchMain>
       <DSAHeader
@@ -81,7 +108,7 @@ function BinarySearchMain({ bst }: { bst: BinaryTree }) {
       </OptionsList>
       <S.Search>Searching: {value}</S.Search>
       <SpeedBar status={status} setStatus={updateStatus} />
-      <Prototype tree={bst} />
+      <Prototype tree={bst} isHighlighted={isHighlighted} isValid={isValid} />
     </S.BinarySearchMain>
   );
 }
