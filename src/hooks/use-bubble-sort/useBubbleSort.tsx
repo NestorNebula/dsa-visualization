@@ -16,6 +16,7 @@ function useBubbleSort(array: Array, delay?: number): BubbleSortMethods {
       if (checkDone === checkToDo) {
         if (!changeDone) {
           setDone(true);
+          setCheckToDo(-1);
           return;
         }
         setCheckToDo(checkToDo - 1);
@@ -35,6 +36,7 @@ function useBubbleSort(array: Array, delay?: number): BubbleSortMethods {
       setSortedArray(tempArray);
     } else {
       setDone(true);
+      setCheckToDo(-1);
       end();
     }
   }
