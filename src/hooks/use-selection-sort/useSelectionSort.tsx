@@ -26,11 +26,13 @@ function useSelectionSort(array: Array, delay?: number): SelectionSortMethods {
 
       if (sortedArray[index + 1]) {
         setIndex(index + 1);
+        setMinIndex(index + 1);
         setMinValue(Infinity);
         setLastChecked(index);
       } else {
         setDone(true);
         setActive(false);
+        setIndex(array.length);
         end();
       }
     } else {
