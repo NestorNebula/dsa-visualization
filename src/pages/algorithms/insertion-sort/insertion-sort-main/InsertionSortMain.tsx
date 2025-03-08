@@ -44,6 +44,20 @@ function InsertionSortMain({ array }: { array: Array }) {
     }
   }, [insertionSort.done]);
 
+  const isHighlighted = (index: number) => {
+    return !insertionSort.indexToSwap
+      ? index === insertionSort.index
+      : index === insertionSort.indexToSwap;
+  };
+
+  const isDone = (index: number) => {
+    return (
+      (!insertionSort.indexToSwap
+        ? index < insertionSort.index
+        : index < insertionSort.index + 1) && !isHighlighted(index)
+    );
+  };
+
   return (
     <S.InsertionSortMain>
       <DSAHeader
@@ -51,7 +65,11 @@ function InsertionSortMain({ array }: { array: Array }) {
         resource="https://www.geeksforgeeks.org/insertion-sort-algorithm/"
       />
       <SpeedBar status={status} setStatus={updateStatus} />
-      <Prototype array={insertionSort.sortedArray} />
+      <Prototype
+        array={insertionSort.sortedArray}
+        isHighlighted={isHighlighted}
+        isDone={isDone}
+      />
     </S.InsertionSortMain>
   );
 }
