@@ -10,11 +10,15 @@ function TreePrototype({
   onNodeClick,
   getOptions,
   resume,
+  isHighlighted,
+  isValid,
 }: {
   tree: Tree;
   onNodeClick?: (value: number) => void;
   getOptions?: (value: number) => JSX.Element;
   resume?: boolean;
+  isHighlighted?: (value: number) => boolean;
+  isValid?: (value: number) => boolean | undefined;
 }) {
   const arrayRepresentation = getArrayRepresentation(tree);
 
@@ -67,7 +71,11 @@ function TreePrototype({
                   : undefined
               }
               ref={ref}
-              active={!!options?.props.children}
+              active={
+                !!options?.props.children ||
+                (isHighlighted && isHighlighted(arrayRepresentation[i]))
+              }
+              valid={isValid && isValid(arrayRepresentation[i])}
             />
             {options}
           </S.Container>
