@@ -1,35 +1,29 @@
 import styled from 'styled-components';
 
 const PageLink = styled.button`
-  padding: 2rem;
   display: grid;
   place-content: center;
-  position: relative;
+  gap: 2rem;
+`;
+const Title = styled.div`
+  font-size: var(--fs-l);
+  transition: background-color 0.5s ease-in, color 0.25s ease-in;
+  font-family: 'Comfortaa', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+`;
+const IconContainer = styled.div`
+  border: ${(props) => `10px solid ${props.theme.darkBlue}`};
+  border-radius: 100%;
   transition: transform 0.2s ease-in;
+  overflow: hidden;
 
   &:hover {
     transform: scale(1.05);
   }
 `;
-const Title = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-content: center;
-  font-size: var(--fs-l);
-  background-color: rgba(145, 163, 176, 0.4);
-  border-radius: 3rem;
-  transition: background-color 0.5s ease-in, color 0.25s ease-in;
-  font-family: 'Comfortaa', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-    sans-serif;
-
-  &:hover {
-    background-color: transparent;
-    color: transparent;
-  }
+const Icon = styled.img`
+  padding: 5rem;
 `;
-const Icon = styled.img``;
 
-export { PageLink, Title, Icon };
+export { PageLink, Title, IconContainer, Icon };

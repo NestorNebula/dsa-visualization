@@ -15,7 +15,9 @@ function PageLink({
   return (
     <S.PageLink onClick={go}>
       <S.Title>{title}</S.Title>
-      <S.Icon src={icon} alt={`${title.toLowerCase()}'s icon`} />
+      <S.IconContainer>
+        <S.Icon src={icon} alt={`${title.toLowerCase()}'s icon`} />
+      </S.IconContainer>
     </S.PageLink>
   );
 }

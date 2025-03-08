@@ -16,7 +16,7 @@ const Pages = styled.div`
   padding: 0 5rem;
   font-size: var(--fs-m);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 5rem;
 `;
 
