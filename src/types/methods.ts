@@ -79,6 +79,7 @@ interface SelectionSortMethods extends CommonSortingMethods {
 interface InsertionSortMethods extends CommonSortingMethods {
   index: number;
   lastChecked: number;
+  indexToSwap: number | null;
 }
 
 interface MergeSortMethods extends CommonSortingMethods {

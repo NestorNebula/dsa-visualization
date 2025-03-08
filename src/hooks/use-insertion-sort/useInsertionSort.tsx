@@ -65,6 +65,7 @@ function useInsertionSort(array: Array, delay?: number): InsertionSortMethods {
     index,
     lastChecked,
     setDelay,
+    indexToSwap,
   };
 }
 
