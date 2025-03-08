@@ -15,11 +15,28 @@ const Array = styled.div`
     }
   }
 `;
-const Item = styled.div`
+const Item = styled.div<{
+  $highlight?: boolean;
+  $compared?: boolean;
+  $done?: boolean;
+  $valid?: boolean;
+}>`
   & > div:first-child {
     border: 1px solid black;
     border-left: none;
     padding: 0.5rem 1.5rem;
+    background-color: ${(props) =>
+      props.$valid === false
+        ? props.theme.lightRed
+        : props.$valid
+        ? props.theme.green
+        : props.$done
+        ? props.theme.darkBlue
+        : props.$compared
+        ? props.theme.lightGrey
+        : props.$highlight
+        ? props.theme.lightBlue
+        : 'transparent'};
   }
 
   &:first-of-type > div:first-child {
