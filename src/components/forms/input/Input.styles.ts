@@ -22,6 +22,7 @@ const Label = styled.label`
   position: absolute;
   height: 100%;
   overflow: scroll;
+  text-transform: capitalize;
 `;
 
 export { Container, Input, Label };
