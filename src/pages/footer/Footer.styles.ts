@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const Footer = styled.footer`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 1.5rem;
   font-size: var(--fs-s);
   background-color: ${(props) => props.theme.darkBlue};
   color: ${(props) => props.theme.white};
@@ -12,13 +11,19 @@ const Footer = styled.footer`
 `;
 const Cd = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  place-content: center;
   gap: 0.5rem;
+
+  & > * {
+    min-width: max-content;
+  }
 `;
 const Cr = styled.div`
   font-size: var(--fs-m);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
 
   & > a > img {
