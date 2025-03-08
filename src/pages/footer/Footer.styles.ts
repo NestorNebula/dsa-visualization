@@ -6,6 +6,9 @@ const Footer = styled.footer`
   align-items: center;
   gap: 0.75rem;
   font-size: var(--fs-s);
+  background-color: ${(props) => props.theme.darkBlue};
+  color: ${(props) => props.theme.white};
+  padding: 1.5rem 0;
 `;
 const Cd = styled.div`
   display: flex;

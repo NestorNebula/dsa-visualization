@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background-color: ${(props) => props.theme.white};
   }
 
   img,
@@ -63,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
     --fs-m: clamp(1.25rem, 1.5vw + 0.25rem, 2.5rem);
     --fs-s: clamp(0.85rem, 1vw + 0.05rem, 1.75rem);
     font-family: 'Afacad', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: ${(props) => props.theme.darkBlue};
   }
 
   a {
