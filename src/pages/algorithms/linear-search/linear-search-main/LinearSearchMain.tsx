@@ -16,7 +16,7 @@ function LinearSearchMain({ array }: { array: Array }) {
   };
 
   const [opened, setOpened] = useState(false);
-  const [value, setValue] = useState<string | number | null>(null);
+  const [value, setValue] = useState<string | number>(Infinity);
   const [tempValue, setTempValue] = useState('');
   const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
     setTempValue(e.currentTarget.value);
@@ -44,6 +44,18 @@ function LinearSearchMain({ array }: { array: Array }) {
       setStatus(linearSearch.found ? 'Done' : 'Failed');
     }
   }, [linearSearch.done, linearSearch.found]);
+
+  const isHighlighted = (index: number) => {
+    return index === linearSearch.checked;
+  };
+
+  const isValid = (index: number) => {
+    if (index < linearSearch.checked) {
+      return false;
+    } else if (index === linearSearch.checked && linearSearch.found) {
+      return true;
+    }
+  };
 
   return (
     <S.LinearSearchMain>
@@ -79,7 +91,11 @@ function LinearSearchMain({ array }: { array: Array }) {
       </OptionsList>
       <S.Search>Searching: {value}</S.Search>
       <SpeedBar status={status} setStatus={updateStatus} />
-      <Prototype array={array} />
+      <Prototype
+        array={array}
+        isHighlighted={isHighlighted}
+        isValid={isValid}
+      />
     </S.LinearSearchMain>
   );
 }

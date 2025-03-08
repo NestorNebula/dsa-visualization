@@ -1,5 +1,6 @@
 import styled from 'styled-components';
+import { CommonDSA } from '@styles/common-styles';
 
-const BinarySearch = styled.main``;
+const BinarySearch = styled(CommonDSA)``;
 
 export { BinarySearch };

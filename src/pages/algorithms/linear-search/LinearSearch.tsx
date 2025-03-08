@@ -14,7 +14,7 @@ function LinearSearch() {
         methods={{ active: array.active, set: array.set }}
         getPrototype={(ds, i) => <Prototype key={`array-${i}`} array={ds} />}
       />
-      <LinearSearchMain array={arrays[array.active]} />
+      <LinearSearchMain key={array.active} array={arrays[array.active]} />
     </S.LinearSearch>
   );
 }

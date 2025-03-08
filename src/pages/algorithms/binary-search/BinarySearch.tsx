@@ -13,10 +13,13 @@ function BinarySearch() {
         dataStructures={binaryTrees}
         methods={{ active: binaryTree.active, set: binaryTree.set }}
         getPrototype={(ds, i) => (
-          <Prototype key={`binary-tree-${i}`} tree={ds} />
+          <Prototype key={`binary-tree-${i}`} tree={ds} resume />
         )}
       />
-      <BinarySearchMain bst={binaryTrees[binaryTree.active]} />
+      <BinarySearchMain
+        key={binaryTree.active}
+        bst={binaryTrees[binaryTree.active]}
+      />
     </S.BinarySearch>
   );
 }
