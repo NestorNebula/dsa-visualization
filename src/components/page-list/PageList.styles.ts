@@ -8,6 +8,9 @@ const PageList = styled.section`
 const Title = styled.div`
   font-size: var(--fs-l);
   text-align: center;
+  font-family: 'Audiowide', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
 `;
 const Pages = styled.div`
   padding: 0 5rem;

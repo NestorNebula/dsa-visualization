@@ -24,6 +24,9 @@ const DSAHeader = styled.header`
 `;
 const Title = styled.div`
   font-size: var(--fs-l);
+  font-family: 'Comfortaa', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
 `;
 const Link = styled.a`
   & > img {

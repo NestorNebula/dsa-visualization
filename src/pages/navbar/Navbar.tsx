@@ -27,7 +27,9 @@ function Navbar() {
               <></>
             )}
           </S.NavItem>
-          <S.NavItem>DSA Visualization</S.NavItem>
+          <S.NavItem>
+            <S.Title>DSA Visualization</S.Title>
+          </S.NavItem>
           <S.NavItem>
             <S.Icon src={icon} alt="Icon" />
           </S.NavItem>

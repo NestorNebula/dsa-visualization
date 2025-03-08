@@ -32,7 +32,11 @@ const Prev = styled.button`
     max-width: 5rem;
   }
 `;
-const Title = styled.div``;
+const Title = styled.div`
+  font-family: 'Audiowide', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+`;
 const Icon = styled.img`
   max-width: 10rem;
 `;

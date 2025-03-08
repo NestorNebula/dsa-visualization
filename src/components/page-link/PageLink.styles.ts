@@ -21,6 +21,9 @@ const Title = styled.div`
   background-color: rgba(145, 163, 176, 0.4);
   border-radius: 3rem;
   transition: background-color 0.5s ease-in, color 0.25s ease-in;
+  font-family: 'Comfortaa', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
 
   &:hover {
     background-color: transparent;
