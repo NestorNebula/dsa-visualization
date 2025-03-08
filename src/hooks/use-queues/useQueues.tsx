@@ -20,6 +20,9 @@ function useQueues(): { queues: Queue[]; queue: QueueMethods } {
 
   const removeQueue = (index: number) => {
     update(methods.remove(queues, index));
+    if (index === active) {
+      setActive(index > 0 ? index - 1 : 0);
+    }
   };
 
   const enqueue = (value: any) => {
