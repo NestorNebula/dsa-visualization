@@ -6,14 +6,29 @@ function Node({
   onClick,
   ref,
   active,
+  gap,
 }: {
   value: number | string;
   onClick?: () => void;
   ref?: RefObject<HTMLDivElement | null>;
   active?: boolean;
+  gap?: number;
 }) {
   return (
-    <S.Node $active={active} $button={!!onClick} onClick={onClick} ref={ref}>
+    <S.Node
+      $active={active}
+      $button={!!onClick}
+      onClick={onClick}
+      ref={ref}
+      style={
+        gap
+          ? {
+              top: `${gap}rem`,
+              left: `${gap}rem`,
+            }
+          : undefined
+      }
+    >
       {value}
     </S.Node>
   );

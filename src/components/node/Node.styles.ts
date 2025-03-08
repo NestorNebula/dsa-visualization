@@ -18,7 +18,7 @@ const Node = styled.div<{ $active?: boolean; $button?: boolean }>`
     cursor: ${(props) => (props.$button ? 'pointer' : 'default')};
   }
 
-  & + div {
+  & + div:not(:has(svg)) {
     z-index: 2;
   }
 `;
