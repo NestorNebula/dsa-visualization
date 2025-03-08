@@ -44,6 +44,18 @@ function BubbleSortMain({ array }: { array: Array }) {
     }
   }, [bubbleSort.done]);
 
+  const isHighlighted = (index: number) => {
+    return index === bubbleSort.checkDone;
+  };
+
+  const isCompared = (index: number) => {
+    return index === bubbleSort.checkDone + 1;
+  };
+
+  const isDone = (index: number) => {
+    return index > bubbleSort.checkToDo;
+  };
+
   return (
     <S.BubbleSortMain>
       <DSAHeader
@@ -51,7 +63,12 @@ function BubbleSortMain({ array }: { array: Array }) {
         resource="https://www.geeksforgeeks.org/bubble-sort-algorithm/"
       />
       <SpeedBar status={status} setStatus={updateStatus} />
-      <Prototype array={bubbleSort.sortedArray} />
+      <Prototype
+        array={bubbleSort.sortedArray}
+        isHighlighted={isHighlighted}
+        isCompared={isCompared}
+        isDone={isDone}
+      />
     </S.BubbleSortMain>
   );
 }
