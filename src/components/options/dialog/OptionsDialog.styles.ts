@@ -19,6 +19,10 @@ const OptionsDialog = styled.div`
   & > form {
     font-size: var(--fs-s);
   }
+
+  & button {
+    font-size: var(--fs-s);
+  }
 `;
 
 export { OptionsDialog };

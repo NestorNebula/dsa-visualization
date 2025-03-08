@@ -20,6 +20,8 @@ const Input = styled.input`
 `;
 const Label = styled.label`
   position: absolute;
+  height: 100%;
+  overflow: scroll;
 `;
 
 export { Container, Input, Label };
