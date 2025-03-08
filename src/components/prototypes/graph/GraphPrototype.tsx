@@ -21,15 +21,18 @@ function GraphPrototype({
   graph,
   onClick,
   getOptions,
+  resume,
 }: {
   graph: Graph;
   onClick?: (component: Vertex | Edge) => void;
   getOptions?: (component: Vertex | Edge) => JSX.Element;
+  resume?: boolean;
 }) {
   function getGraphContent() {
     const graphContent: JSX.Element[] = [];
     const [verticesRef, setVerticesRef] = useState<VerticesRef>({});
     const newVerticesRef: RefObject<VerticesRef> = useRef({});
+    let i = 0;
     for (const key in graph.vertices) {
       const vertice = graph.vertices[key];
       newVerticesRef.current[vertice.value] =
@@ -39,6 +42,9 @@ function GraphPrototype({
         const edge = vertice.edges[i];
         const vRef = verticesRef[vertice.value];
         const veRef = verticesRef[edge];
+        const options =
+          getOptions &&
+          getOptions({ type: 'Edge', values: [vertice.value, edge] });
         if (vRef && vRef.current && veRef && veRef.current) {
           edges.push(
             <S.Edge
@@ -48,42 +54,62 @@ function GraphPrototype({
                 onClick &&
                 onClick({ type: 'Edge', values: [vertice.value, edge] })
               }
+              $active={!!options?.props.children}
             >
-              {getOptions &&
-                getOptions({ type: 'Edge', values: [vertice.value, edge] })}
+              {options}
               <svg>
                 <line
                   x1="0"
                   x2={
-                    veRef.current.getBoundingClientRect().right -
+                    veRef.current.getBoundingClientRect().left -
                     vRef.current.getBoundingClientRect().left
                   }
                   y1="0"
                   y2={
                     veRef.current.getBoundingClientRect().bottom -
-                    vRef.current.getBoundingClientRect().top
+                    vRef.current.getBoundingClientRect().bottom
                   }
-                  stroke="black"
                 />
               </svg>
             </S.Edge>
           );
         }
       }
+      const options =
+        getOptions && getOptions({ type: 'Vertex', value: vertice.value });
       graphContent.push(
         <S.Container key={`vertex-${vertice.value}`}>
-          {getOptions && getOptions({ type: 'Vertex', value: vertice.value })}
+          {options}
           <Node
             value={vertice.value}
             ref={newVerticesRef.current[vertice.value]}
             onClick={() =>
               onClick && onClick({ type: 'Vertex', value: vertice.value })
             }
+            gap={Number.isInteger(i / 2) ? 1.5 : -1.5}
+            active={!!options?.props.children}
           />
-          {edges.length ? <S.Edges>{edges.map((e) => e)}</S.Edges> : <></>}
+          {edges.length ? (
+            <S.Edges $gap={Number.isInteger(i / 2) ? 1.5 : -1.5}>
+              {edges.map((e) => e)}
+            </S.Edges>
+          ) : (
+            <></>
+          )}
         </S.Container>
       );
+      i++;
     }
+
+    const [renderEdges, setRenderEdges] = useState(0);
+
+    useEffect(() => {
+      const updateRenderEdges = () => setRenderEdges(Math.random() * 10000);
+
+      window.addEventListener('resize', updateRenderEdges);
+
+      return () => window.removeEventListener('resize', updateRenderEdges);
+    }, []);
 
     useEffect(() => {
       let isUpToDate = true;
@@ -110,12 +136,31 @@ function GraphPrototype({
       if (!isUpToDate) {
         setVerticesRef(newVerticesRef.current);
       }
-    }, [window]);
+    }, [renderEdges]);
 
     return graphContent;
   }
 
-  return <S.GraphPrototype>{getGraphContent()}</S.GraphPrototype>;
+  const getGraphResume = () => {
+    const resume: JSX.Element[] = [];
+    for (const key in graph.vertices) {
+      resume.push(
+        <div key={`resume-${graph.vertices[key].value}`}>
+          {graph.vertices[key].value}
+        </div>
+      );
+    }
+    return resume;
+  };
+
+  return !resume ? (
+    <S.GraphPrototype>{getGraphContent()}</S.GraphPrototype>
+  ) : (
+    <S.GraphResume>
+      <header></header>
+      {getGraphResume()}
+    </S.GraphResume>
+  );
 }
 
 export default GraphPrototype;
