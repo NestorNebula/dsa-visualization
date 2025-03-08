@@ -7,17 +7,20 @@ function Node({
   ref,
   active,
   gap,
+  valid,
 }: {
   value: number | string;
   onClick?: () => void;
   ref?: RefObject<HTMLDivElement | null>;
   active?: boolean;
   gap?: number;
+  valid?: boolean;
 }) {
   return (
     <S.Node
       $active={active}
       $button={!!onClick}
+      $valid={valid}
       onClick={onClick}
       ref={ref}
       style={

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const Node = styled.div<{ $active?: boolean; $button?: boolean }>`
+const Node = styled.div<{
+  $active?: boolean;
+  $button?: boolean;
+  $valid?: boolean;
+}>`
   --size: 6rem;
   border: 1px solid black;
   display: grid;
@@ -12,7 +16,13 @@ const Node = styled.div<{ $active?: boolean; $button?: boolean }>`
   z-index: 1;
   overflow-x: hidden;
   background-color: ${(props) =>
-    props.$active ? props.theme.lightBlue : 'white'};
+    props.$active
+      ? props.theme.lightBlue
+      : props.$valid
+      ? props.theme.green
+      : props.$valid === false
+      ? props.theme.lightRed
+      : 'white'};
 
   &:hover {
     cursor: ${(props) => (props.$button ? 'pointer' : 'default')};
