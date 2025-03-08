@@ -1,6 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Afacad';
+    src: url('/fonts/Afacad/static/Afacad-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'Audiowide';
+    src: url('/fonts/Audiowide/Audiowide-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'Comfortaa';
+    src: url('/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
+  }
+
   *,
   *::before,
   *::after {
@@ -47,6 +62,7 @@ const GlobalStyle = createGlobalStyle`
     --fs-l: clamp(2.25rem, 2.5vw + 1rem, 5rem);
     --fs-m: clamp(1.25rem, 1.5vw + 0.25rem, 2.5rem);
     --fs-s: clamp(0.85rem, 1vw + 0.05rem, 1.75rem);
+    font-family: 'Afacad', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   a {
