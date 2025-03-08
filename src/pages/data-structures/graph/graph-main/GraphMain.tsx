@@ -33,7 +33,19 @@ function GraphMain({
   };
 
   const onClick = (component: Vertex | Edge) => {
-    setActive(component);
+    if (
+      active &&
+      ((active.type === 'Vertex' &&
+        component.type === 'Vertex' &&
+        active.value === component.value) ||
+        (active.type === 'Edge' &&
+          component.type === 'Edge' &&
+          active.values.toString() === component.values.toString()))
+    ) {
+      setActive(null);
+    } else {
+      setActive(component);
+    }
   };
 
   const getOptions = (component: Vertex | Edge) => {
@@ -73,7 +85,10 @@ function GraphMain({
             />
           )}
           <OptionsButton
-            onClick={() => graph.removeVertex(active.value)}
+            onClick={() => {
+              graph.removeVertex(active.value);
+              setActive(null);
+            }}
             textVersion
             label="Remove"
           />
@@ -130,6 +145,7 @@ function GraphMain({
         )}
       </OptionsList>
       <Prototype
+        key={`${graph.active}-${opened}-${active}`}
         graph={graphs[graph.active]}
         onClick={onClick}
         getOptions={getOptions}

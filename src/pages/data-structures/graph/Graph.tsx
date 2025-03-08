@@ -10,6 +10,7 @@ function Graph() {
   return (
     <S.Graph>
       <Sidebar
+        key={graphs.length}
         dataStructures={graphs}
         methods={{
           active: graph.active,
@@ -17,9 +18,15 @@ function Graph() {
           add: graph.add,
           remove: graph.remove,
         }}
-        getPrototype={(ds, i) => <Prototype key={`graph-${i}`} graph={ds} />}
+        getPrototype={(ds, i) => (
+          <Prototype key={`graph-${i}`} graph={ds} resume />
+        )}
       />
-      <GraphMain graphs={graphs} graph={graph} />
+      <GraphMain
+        key={`${graphs.length}-${graph.active}`}
+        graphs={graphs}
+        graph={graph}
+      />
     </S.Graph>
   );
 }
