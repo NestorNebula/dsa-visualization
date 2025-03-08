@@ -21,6 +21,10 @@ const HashMapPrototype = styled.div`
       text-transform: uppercase;
       font-weight: 700;
     }
+
+    & > div > div::after {
+      content: '' !important;
+    }
   }
 `;
 const HashMapResume = styled.div`
