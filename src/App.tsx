@@ -21,9 +21,10 @@ function App() {
         </div>
         <div>
           Each data structure can contain different values, that you can add,
-          remove or change depending on the data structure. You will also be
-          able to create multiple variations of the same data structures to test
-          them with different values.
+          remove or change depending on the data structure (Try to interact with
+          different parts of data structures to see what you can do!). You will
+          also be able to create multiple variations of the same data structures
+          to test them with different values.
         </div>
         <div>
           Everything you create or change will be saved for you to continue your
