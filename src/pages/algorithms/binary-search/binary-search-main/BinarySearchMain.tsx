@@ -87,12 +87,13 @@ function BinarySearchMain({ bst }: { bst: BinaryTree }) {
       <Informations>
         <div>
           The Binary Search algorithm searches a value by going "left" if the
-          searched value is smaller and right if the searched value is greater.
+          searched value is smaller and "right" if the searched value is
+          greater.
         </div>
         <div>
-          The Binary Search algorithm can and is normally used on sorted array,
-          but for better visualisation, it was decided to use Binary Search
-          Trees to represent it.
+          The Binary Search algorithm can and is normally used on a sorted
+          array, but for better visualisation, it was decided to use Binary
+          Search Trees to represent it.
         </div>
       </Informations>
       <OptionsList>
