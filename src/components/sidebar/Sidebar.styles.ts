@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Sidebar = styled.aside`
   margin: 0 2.5rem;
   padding: 1rem;
-  background-color: ${(props) => props.theme.lightGrey};
+  background-color: ${(props) => props.theme.timberwolf};
   height: fit-content;
   border-radius: 0.5rem;
   min-width: max-content;
