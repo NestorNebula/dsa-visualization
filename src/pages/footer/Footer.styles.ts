@@ -28,6 +28,7 @@ const Cr = styled.div`
 
   & > a > img {
     min-width: 2.5rem;
+    filter: invert();
   }
 `;
 
