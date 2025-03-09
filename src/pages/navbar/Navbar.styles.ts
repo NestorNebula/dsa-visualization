@@ -17,6 +17,10 @@ const Navbar = styled.nav`
       justify-content: center;
     }
   }
+
+  & + * {
+    min-height: 90vh;
+  }
 `;
 const NavItem = styled.li`
   &:first-of-type {
