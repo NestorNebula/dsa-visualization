@@ -42,8 +42,8 @@ function HashMapMain({
           numbers or full words/expressions could also have been used.
         </div>
         <div>
-          The process to attribute a bucket to a value is called Hashing and is
-          using a Hash function. Here, the Hash function is looking at the
+          The process of attributing a bucket to a value is called Hashing and
+          is using a Hash function. Here, the Hash function is looking at the
           word's first letter and add it to the corresponding bucket.
         </div>
       </Informations>

@@ -91,9 +91,9 @@ function ArrayMain({
       />
       <Informations>
         <div>
-          You can remove any item in an array but for the sake of the simplicity
-          it was decided to only keep the more common actions which is removing
-          the first or last item.
+          You can remove any item in an array but for the sake of simplicity it
+          was decided to only keep the more common actions which is removing the
+          first or last item.
         </div>
         <div>Any item can be changed inside an array.</div>
       </Informations>
