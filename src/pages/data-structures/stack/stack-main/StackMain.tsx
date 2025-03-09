@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
 import { Stack as Prototype } from '@components/prototypes';
@@ -34,6 +35,13 @@ function StackMain({
         title="Stack"
         resource="https://www.geeksforgeeks.org/stack-data-structure/"
       />
+      <Informations>
+        <div>
+          A stack works like a stack of books. You can add as much books as you
+          want but you must remove the book all the books on top of the book you
+          want to access it.
+        </div>
+      </Informations>
       <OptionsList>
         {isOpened ? (
           <Form

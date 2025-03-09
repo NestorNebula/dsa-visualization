@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
 import { LinkedList as Prototype } from '@components/prototypes';
@@ -33,6 +34,17 @@ function LinkedListMain({
         title="Linked List"
         resource="https://www.geeksforgeeks.org/linked-list-data-structure/"
       />
+      <Informations>
+        <div>
+          In a Linked List, every item is pointing at the next one. This makes
+          it very useful for removing an element: You only have to link the
+          previous element to the next element.
+        </div>
+        <div>
+          In more complex Linked Lists (Doubly Linked List), nodes are also
+          pointing to the node that precede them.
+        </div>
+      </Informations>
       <OptionsList>
         {status ? (
           <Form

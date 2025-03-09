@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
 import { Queue as Prototype } from '@components/prototypes';
@@ -32,6 +33,12 @@ function QueueMain({
         title="Queue"
         resource="https://www.geeksforgeeks.org/queue-data-structure/"
       />
+      <Informations>
+        <div>
+          Just like an office queue, once an item has "joined" the queue, all
+          the items that have joined before it must be handled first.
+        </div>
+      </Informations>
       <OptionsList>
         {opened ? (
           <Form

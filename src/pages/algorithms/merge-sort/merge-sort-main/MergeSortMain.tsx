@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useMergeSort } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
 import { Array as Prototype } from '@components/prototypes';
 import * as S from './MergeSortMain.styles';
@@ -58,6 +59,13 @@ function MergeSortMain({ array }: { array: Array }) {
         title="Merge Sort"
         resource="https://www.geeksforgeeks.org/merge-sort/"
       />
+      <Informations>
+        <div>
+          The Merge Sort algorithm divide the array into subarrays until the
+          subarrays are sorted (having only one element), it then merges the
+          subarrays by comparing the value of their elements.
+        </div>
+      </Informations>
       <SpeedBar status={status} setStatus={updateStatus} />
       <Prototype array={mergeSort.sortedArray} isDone={() => mergeSort.done} />
       {mergeSort.levels.map((l, lI) => (

@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
 import { Tree as Prototype } from '@components/prototypes';
@@ -27,6 +28,13 @@ function HeapMain({ heaps, heap }: { heaps: Heap[]; heap: HeapMethods }) {
         title={heaps[heap.active].type === 'MAX' ? 'Max Heap' : 'Min Heap'}
         resource="https://www.geeksforgeeks.org/heap-data-structure/"
       />
+      <Informations>
+        <div>
+          Heaps are Binary Trees where each node childs are less than or equal
+          to the node value in the case of a Max Heap, or bigger than or equal
+          to the node value for a Min Heap.
+        </div>
+      </Informations>
       <OptionsList>
         {opened ? (
           <Form

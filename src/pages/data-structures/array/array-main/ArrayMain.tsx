@@ -1,6 +1,7 @@
 import { useState, type ChangeEvent } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import Prototype from '@components/prototypes/array/ArrayPrototype';
 import { OptionsButton, OptionsDialog, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
@@ -88,6 +89,14 @@ function ArrayMain({
         title="Array"
         resource="https://www.geeksforgeeks.org/array-data-structure-guide/"
       />
+      <Informations>
+        <div>
+          You can remove any item in an array but for the sake of the simplicity
+          it was decided to only keep the more common actions which is removing
+          the first or last item.
+        </div>
+        <div>Any item can be changed inside an array.</div>
+      </Informations>
       <OptionsList>
         {addItem ? (
           <Form

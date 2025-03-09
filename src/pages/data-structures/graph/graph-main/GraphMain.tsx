@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { Form, Input } from '@components/forms';
 import { OptionsButton, OptionsDialog, OptionsList } from '@components/options';
 import { Graph as Prototype } from '@components/prototypes';
@@ -128,6 +129,17 @@ function GraphMain({
         title="Graph"
         resource="https://www.geeksforgeeks.org/introduction-to-graphs-data-structure-and-algorithm-tutorials/"
       />
+      <Informations>
+        <div>
+          Graphs are composed of vertices/nodes that can be connected to each
+          other via edges/links.
+        </div>
+        <div>
+          Graphs rendered here are undirected, but they can also be directed,
+          where a node can point to another without the other one also pointing
+          to it.
+        </div>
+      </Informations>
       <OptionsList>
         {opened === 'Vertex' ? (
           <Form

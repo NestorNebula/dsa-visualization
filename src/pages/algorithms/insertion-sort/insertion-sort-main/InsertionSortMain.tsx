@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useInsertionSort } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
 import { Array as Prototype } from '@components/prototypes';
 import * as S from './InsertionSortMain.styles';
@@ -64,6 +65,12 @@ function InsertionSortMain({ array }: { array: Array }) {
         title="Insertion Sort"
         resource="https://www.geeksforgeeks.org/insertion-sort-algorithm/"
       />
+      <Informations>
+        <div>
+          The Insertion Sort algorithm adds each item one by one to the sorted
+          part of the array, starting with the second item.
+        </div>
+      </Informations>
       <SpeedBar status={status} setStatus={updateStatus} />
       <Prototype
         array={insertionSort.sortedArray}

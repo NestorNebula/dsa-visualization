@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelectionSort } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
 import { Array as Prototype } from '@components/prototypes';
 import * as S from './SelectionSortMain.styles';
@@ -63,6 +64,13 @@ function SelectionSortMain({ array }: { array: Array }) {
         title="Selection Sort"
         resource="https://www.geeksforgeeks.org/selection-sort-algorithm-2/"
       />
+      <Informations>
+        <div>
+          The Selection Sort algorithm takes the smallest value on each
+          iteration and put it at the first unsorted place of the array until
+          the array is sorted.
+        </div>
+      </Informations>
       <SpeedBar status={status} setStatus={updateStatus} />
       <Prototype
         array={selectionSort.sortedArray}

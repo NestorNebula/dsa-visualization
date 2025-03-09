@@ -1,6 +1,7 @@
 import { type ChangeEvent, useState } from 'react';
 import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
 import { HashMap as Prototype } from '@components/prototypes';
@@ -34,6 +35,18 @@ function HashMapMain({
         title="HashMap"
         resource="https://www.masaischool.com/blog/understanding-hashmap-data-structure-with-examples/"
       />
+      <Informations>
+        <div>
+          Hashmap "keys" can be anything. For the sake of simplicity and better
+          understanding of the concept, it was decided to use letters, but
+          numbers or full words/expressions could also have been used.
+        </div>
+        <div>
+          The process to attribute a bucket to a value is called Hashing and is
+          using a Hash function. Here, the Hash function is looking at the
+          word's first letter and add it to the corresponding bucket.
+        </div>
+      </Informations>
       <OptionsList>
         {status ? (
           <Form

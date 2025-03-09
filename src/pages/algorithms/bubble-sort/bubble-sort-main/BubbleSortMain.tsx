@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useBubbleSort } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
 import { Array as Prototype } from '@components/prototypes';
 import * as S from './BubbleSortMain.styles';
@@ -62,6 +63,12 @@ function BubbleSortMain({ array }: { array: Array }) {
         title="Bubble Sort"
         resource="https://www.geeksforgeeks.org/bubble-sort-algorithm/"
       />
+      <Informations>
+        <div>
+          The Bubble Sort algorithm compare each value to the next one until the
+          array is sorted.
+        </div>
+      </Informations>
       <SpeedBar status={status} setStatus={updateStatus} />
       <Prototype
         array={bubbleSort.sortedArray}

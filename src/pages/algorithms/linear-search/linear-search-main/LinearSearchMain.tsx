@@ -1,6 +1,7 @@
 import { type ChangeEvent, useEffect, useState } from 'react';
 import { useEscape, useLinearSearch } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
@@ -68,6 +69,12 @@ function LinearSearchMain({ array }: { array: Array }) {
         title="Linear Search"
         resource="https://www.geeksforgeeks.org/linear-search/"
       />
+      <Informations>
+        <div>
+          The Linear Search algorithm searches a value by looking at all the
+          items one by one, from "left" to "right".
+        </div>
+      </Informations>
       <OptionsList>
         {opened ? (
           <Form

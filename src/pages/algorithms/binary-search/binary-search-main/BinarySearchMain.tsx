@@ -1,6 +1,7 @@
 import { type ChangeEvent, useEffect, useState } from 'react';
 import { useBinarySearch, useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
+import Informations from '@components/informations/Informations';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
@@ -83,6 +84,17 @@ function BinarySearchMain({ bst }: { bst: BinaryTree }) {
         title="Binary Search"
         resource="https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/"
       />
+      <Informations>
+        <div>
+          The Binary Search algorithm searches a value by going "left" if the
+          searched value is smaller and right if the searched value is greater.
+        </div>
+        <div>
+          The Binary Search algorithm can and is normally used on sorted array,
+          but for better visualisation, it was decided to use Binary Search
+          Trees to represent it.
+        </div>
+      </Informations>
       <OptionsList>
         {opened ? (
           <Form
