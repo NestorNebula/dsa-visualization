@@ -7,6 +7,7 @@ const theme = {
   green: '#7DD4AA',
   darkGrey: '#91A3B0',
   lightGrey: '#DADBDE',
+  timberwolf: '#DBD7D2',
 };
 
 export default theme;
