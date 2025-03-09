@@ -59,7 +59,7 @@ function BinarySearchMain({ bst }: { bst: BinaryTree }) {
 
   const isValid = (value: number) => {
     if (value === binarySearch.checked?.value) {
-      return true;
+      return binarySearch.found;
     } else {
       let node = bst.root;
       while (node && node.value !== value) {
