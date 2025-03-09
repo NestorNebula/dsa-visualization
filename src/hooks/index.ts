@@ -2,6 +2,7 @@ import useArrays from './use-arrays/useArrays';
 import useBinarySearch from './use-binary-search/useBinarySearch';
 import useBinaryTrees from './use-binarytrees/useBinaryTrees';
 import useBubbleSort from './use-bubble-sort/useBubbleSort';
+import useEscape from './use-escape/useEscape';
 import useGraphs from './use-graphs/useGraphs';
 import useHashMaps from './use-hashmaps/useHashMaps';
 import useHeaps from './use-heaps/useHeaps';
@@ -20,6 +21,7 @@ export {
   useBinarySearch,
   useBinaryTrees,
   useBubbleSort,
+  useEscape,
   useGraphs,
   useHashMaps,
   useHeaps,
