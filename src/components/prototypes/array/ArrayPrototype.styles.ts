@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 const Array = styled.div`
   & > div {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    display: flex;
     box-shadow: ${(props) => `0px 0px 5px ${props.theme.darkGrey}`};
 
     &:not(:has(div)) {
