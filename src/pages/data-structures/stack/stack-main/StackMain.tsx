@@ -1,4 +1,5 @@
 import { type ChangeEvent, useState } from 'react';
+import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
@@ -21,6 +22,11 @@ function StackMain({
   };
 
   const [isOpened, setOpened] = useState(false);
+
+  useEscape(() => {
+    setOpened(false);
+    setValue('');
+  });
 
   return (
     <S.StackMain>

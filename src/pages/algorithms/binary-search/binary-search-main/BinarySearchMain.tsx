@@ -1,5 +1,5 @@
 import { type ChangeEvent, useEffect, useState } from 'react';
-import { useBinarySearch } from '@hooks';
+import { useBinarySearch, useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
@@ -23,6 +23,11 @@ function BinarySearchMain({ bst }: { bst: BinaryTree }) {
   };
 
   const binarySearch = useBinarySearch(bst, value);
+
+  useEscape(() => {
+    setOpened(false);
+    setTempValue('');
+  });
 
   useEffect(() => {
     switch (status) {

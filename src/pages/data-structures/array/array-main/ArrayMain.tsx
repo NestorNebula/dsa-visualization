@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent } from 'react';
+import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import Prototype from '@components/prototypes/array/ArrayPrototype';
 import { OptionsButton, OptionsDialog, OptionsList } from '@components/options';
@@ -30,6 +31,12 @@ function ArrayMain({
     setAddItem(false);
   };
   const [value, setValue] = useState('');
+
+  useEscape(() => {
+    addItem && setAddItem(false);
+    updateItem && setUpdateItem(false);
+    value && setValue('');
+  });
 
   const getItemOptions = (index: number) => {
     return index === item.active ? (

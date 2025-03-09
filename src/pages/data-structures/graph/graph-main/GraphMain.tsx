@@ -1,4 +1,5 @@
 import { type ChangeEvent, useState } from 'react';
+import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import { Form, Input } from '@components/forms';
 import { OptionsButton, OptionsDialog, OptionsList } from '@components/options';
@@ -31,6 +32,11 @@ function GraphMain({
   const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
   };
+
+  useEscape(() => {
+    setOpened(null);
+    setValue('');
+  });
 
   const onClick = (component: Vertex | Edge) => {
     if (

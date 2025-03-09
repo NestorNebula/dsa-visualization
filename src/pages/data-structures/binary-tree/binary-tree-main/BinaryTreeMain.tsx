@@ -1,4 +1,5 @@
 import { type ChangeEvent, useState } from 'react';
+import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import { Form, Input } from '@components/forms';
 import { OptionsButton, OptionsList, OptionsDialog } from '@components/options';
@@ -22,6 +23,11 @@ function BinaryTreeMain({
   };
 
   const [activeValue, setActiveValue] = useState<number | null>(null);
+
+  useEscape(() => {
+    setOpened(false);
+    setValue('');
+  });
 
   const getOptions = (val: number) => {
     if (val === activeValue) {

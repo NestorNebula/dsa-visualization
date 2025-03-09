@@ -1,5 +1,5 @@
 import { type ChangeEvent, useEffect, useState } from 'react';
-import { useLinearSearch } from '@hooks';
+import { useEscape, useLinearSearch } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import SpeedBar, { type Status } from '@components/speed-bar/SpeedBar';
 import { OptionsButton, OptionsList } from '@components/options';
@@ -23,6 +23,11 @@ function LinearSearchMain({ array }: { array: Array }) {
   };
 
   const linearSearch = useLinearSearch(array, value ?? '');
+
+  useEscape(() => {
+    setOpened(false);
+    setTempValue('');
+  });
 
   useEffect(() => {
     switch (status) {

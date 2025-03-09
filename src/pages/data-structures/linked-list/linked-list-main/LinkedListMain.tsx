@@ -1,4 +1,5 @@
 import { type ChangeEvent, useState } from 'react';
+import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
@@ -20,6 +21,12 @@ function LinkedListMain({
     setValue(e.currentTarget.value);
   };
   const [status, setStatus] = useState<'add' | 'delete' | null>(null);
+
+  useEscape(() => {
+    setStatus(null);
+    setValue('');
+  });
+
   return (
     <S.LinkedListMain>
       <DSAHeader

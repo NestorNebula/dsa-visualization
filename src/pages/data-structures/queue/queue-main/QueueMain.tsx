@@ -1,4 +1,5 @@
 import { type ChangeEvent, useState } from 'react';
+import { useEscape } from '@hooks';
 import DSAHeader from '@components/dsa-header/DSAHeader';
 import { OptionsButton, OptionsList } from '@components/options';
 import { Form, Input } from '@components/forms';
@@ -19,6 +20,11 @@ function QueueMain({
   const updateValue = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.currentTarget.value);
   };
+
+  useEscape(() => {
+    setOpened(false);
+    setValue('');
+  });
 
   return (
     <S.QueueMain>
