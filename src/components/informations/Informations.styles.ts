@@ -11,6 +11,7 @@ const Informations = styled.div`
   flex-direction: column;
   gap: 2rem;
   position: relative;
+  font-style: italic;
 `;
 const Title = styled.div`
   font-size: var(--fs-m);
