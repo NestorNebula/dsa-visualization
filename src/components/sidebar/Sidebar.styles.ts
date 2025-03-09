@@ -6,10 +6,11 @@ const Sidebar = styled.aside`
   background-color: ${(props) => props.theme.timberwolf};
   height: fit-content;
   border-radius: 0.5rem;
-  min-width: max-content;
 
   @media (min-width: 800px) {
     padding: 2.5rem;
+    max-width: 25vw;
+    overflow-x: hidden;
   }
 `;
 
