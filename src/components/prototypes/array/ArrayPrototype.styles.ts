@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 const Array = styled.div`
   & > div {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     box-shadow: ${(props) => `0px 0px 5px ${props.theme.darkGrey}`};
 
     &:not(:has(div)) {
@@ -37,6 +39,7 @@ const Item = styled.div<{
         : props.$highlight
         ? props.theme.lightBlue
         : 'transparent'};
+    text-align: center;
   }
 
   &:first-of-type > div:first-child {
