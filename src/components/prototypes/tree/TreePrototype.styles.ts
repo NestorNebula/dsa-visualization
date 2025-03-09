@@ -10,6 +10,7 @@ const Row = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
   justify-items: center;
+  gap: 1rem;
 `;
 const Container = styled.div`
   position: relative;
