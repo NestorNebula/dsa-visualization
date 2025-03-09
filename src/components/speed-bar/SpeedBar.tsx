@@ -13,13 +13,25 @@ function SpeedBar({
   return (
     <S.SpeedBar>
       <S.Options>
-        <S.Button aria-label="pause" onClick={() => setStatus('Paused')}>
+        <S.Button
+          aria-label={status !== 'Paused' ? 'pause' : 'paused'}
+          disabled={['Paused', 'Done', 'Failed'].includes(status)}
+          onClick={() => setStatus('Paused')}
+        >
           <img src={pause} alt="Pause" />
         </S.Button>
-        <S.Button aria-label="play" onClick={() => setStatus('Active')}>
+        <S.Button
+          aria-label={status !== 'Active' ? 'play' : 'active'}
+          disabled={['Active', 'Done', 'Failed'].includes(status)}
+          onClick={() => setStatus('Active')}
+        >
           <img src={play} alt="Play" />
         </S.Button>
-        <S.Button aria-label="faster" onClick={() => setStatus('Faster')}>
+        <S.Button
+          aria-label="faster"
+          disabled={['Faster', 'Done', 'Failed'].includes(status)}
+          onClick={() => setStatus('Faster')}
+        >
           <img src={forward} alt="Forward" />
         </S.Button>
       </S.Options>
