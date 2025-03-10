@@ -6,6 +6,7 @@ import * as S from './DataStructures.styles';
 function DataStructures() {
   return (
     <S.DataStructures>
+      <title>DSA Visualization - Data Structures</title>
       <PageList title="Data Structures">
         <PageLink title="Array" icon={dataStructures.array} path="array" />
         <PageLink

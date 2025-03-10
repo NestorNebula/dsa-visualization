@@ -9,6 +9,7 @@ function BinarySearch() {
 
   return (
     <S.BinarySearch>
+      <title>DSA Visualization - Binary Search</title>
       <Sidebar
         dataStructures={binaryTrees}
         methods={{ active: binaryTree.active, set: binaryTree.set }}

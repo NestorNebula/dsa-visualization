@@ -4,6 +4,7 @@ import * as S from './App.styles';
 function App() {
   return (
     <S.App>
+      <title>DSA Visualization</title>
       <S.Header>Welcome to DSA Visualization!</S.Header>
       <S.Main>
         <div>

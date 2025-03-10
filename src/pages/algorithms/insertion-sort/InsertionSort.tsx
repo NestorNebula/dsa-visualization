@@ -9,6 +9,7 @@ function InsertionSort() {
 
   return (
     <S.InsertionSort>
+      <title>DSA Visualization - Insertion Sort</title>
       <Sidebar
         dataStructures={arrays}
         methods={{ active: array.active, set: array.set }}

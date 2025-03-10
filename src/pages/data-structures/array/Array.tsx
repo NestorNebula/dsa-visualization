@@ -12,6 +12,7 @@ function Array() {
 
   return (
     <S.Array>
+      <title>DSA Visualization - Array</title>
       <Sidebar
         dataStructures={arrays}
         methods={{

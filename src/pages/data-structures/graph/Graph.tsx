@@ -9,6 +9,7 @@ function Graph() {
 
   return (
     <S.Graph>
+      <title>DSA Visualization - Graph</title>
       <Sidebar
         key={graphs.length}
         dataStructures={graphs}

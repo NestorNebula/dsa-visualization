@@ -9,6 +9,7 @@ function BinaryTree() {
 
   return (
     <S.BinaryTree>
+      <title>DSA Visualization - Binary Tree</title>
       <Sidebar
         dataStructures={binaryTrees}
         methods={{

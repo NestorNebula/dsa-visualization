@@ -9,6 +9,7 @@ function BubbleSort() {
 
   return (
     <S.BubbleSort>
+      <title>DSA Visualization - Bubble Sort</title>
       <Sidebar
         dataStructures={arrays}
         methods={{ active: array.active, set: array.set }}

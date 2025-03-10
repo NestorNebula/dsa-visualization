@@ -9,6 +9,7 @@ function LinearSearch() {
 
   return (
     <S.LinearSearch>
+      <title>DSA Visualization - Linear Search</title>
       <Sidebar
         dataStructures={arrays}
         methods={{ active: array.active, set: array.set }}

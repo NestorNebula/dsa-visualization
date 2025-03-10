@@ -9,6 +9,7 @@ function LinkedList() {
 
   return (
     <S.LinkedList>
+      <title>DSA Visualization - Linked List</title>
       <Sidebar
         dataStructures={linkedLists}
         methods={{

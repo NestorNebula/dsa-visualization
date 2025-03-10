@@ -9,6 +9,7 @@ function MergeSort() {
 
   return (
     <S.MergeSort>
+      <title>DSA Visualization - Merge Sort</title>
       <Sidebar
         dataStructures={arrays}
         methods={{ active: array.active, set: array.set }}

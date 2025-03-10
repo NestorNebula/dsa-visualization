@@ -9,6 +9,7 @@ function Heap() {
 
   return (
     <S.Heap>
+      <title>DSA Visualization - Heap</title>
       <Sidebar
         dataStructures={heaps}
         methods={{

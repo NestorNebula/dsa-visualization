@@ -9,6 +9,7 @@ function SelectionSort() {
 
   return (
     <S.SelectionSort>
+      <title>DSA Visualization - Selection Sort</title>
       <Sidebar
         dataStructures={arrays}
         methods={{ active: array.active, set: array.set }}

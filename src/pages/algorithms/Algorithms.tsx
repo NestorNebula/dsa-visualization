@@ -6,6 +6,7 @@ import * as S from './Algorithms.styles';
 function Algorithms() {
   return (
     <S.Algorithms>
+      <title>DSA Visualization - Algorithms</title>
       <PageList title="Sorting Algorithms">
         <PageLink
           title="Bubble Sort"

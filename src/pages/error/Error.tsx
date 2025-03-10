@@ -7,6 +7,7 @@ function Error() {
   const error = useRouteError();
   return error instanceof Sperror ? (
     <S.Error>
+      <title>DSA Visualization - Error</title>
       <Err error={error} />
       {error.statusCode === 404 ? (
         <Link to="/">Go back to home page</Link>
@@ -16,6 +17,7 @@ function Error() {
     </S.Error>
   ) : (
     <S.Error>
+      <title>DSA Visualization - Error</title>
       <Err error={error} />
     </S.Error>
   );

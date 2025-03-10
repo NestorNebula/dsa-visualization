@@ -9,6 +9,7 @@ function Queue() {
 
   return (
     <S.Queue>
+      <title>DSA Visualization - Queue</title>
       <Sidebar
         dataStructures={queues}
         methods={{

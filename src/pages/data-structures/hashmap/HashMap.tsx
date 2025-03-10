@@ -9,6 +9,7 @@ function HashMap() {
 
   return (
     <S.HashMap>
+      <title>DSA Visualization - HashMap</title>
       <Sidebar
         dataStructures={hashMaps}
         methods={{

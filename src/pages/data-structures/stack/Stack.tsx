@@ -9,6 +9,7 @@ function Stack() {
 
   return (
     <S.Stack>
+      <title>DSA Visualization - Stack</title>
       <Sidebar
         dataStructures={stacks}
         methods={{
