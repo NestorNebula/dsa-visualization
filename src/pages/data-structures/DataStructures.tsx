@@ -9,17 +9,17 @@ function DataStructures() {
       <PageList title="Data Structures">
         <PageLink title="Array" icon={dataStructures.array} path="array" />
         <PageLink
+          title="Linked List"
+          icon={dataStructures.linkedList}
+          path="linked-list"
+        />
+        <PageLink
           title="HashMap"
           icon={dataStructures.hashMap}
           path="hashmap"
         />
         <PageLink title="Stack" icon={dataStructures.stack} path="stack" />
         <PageLink title="Queue" icon={dataStructures.queue} path="queue" />
-        <PageLink
-          title="Linked List"
-          icon={dataStructures.linkedList}
-          path="linked-list"
-        />
         <PageLink
           title="Binary Tree"
           icon={dataStructures.binaryTree}
