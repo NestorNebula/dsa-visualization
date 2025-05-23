@@ -48,10 +48,10 @@ The user's data structures are saved, allowing them to continue their exploratio
 
    ```
    # SSH:
-   git remote add upstream git@github.com:dsa-visualization/<repo name>.git
+   git remote add upstream git@github.com:NestorNebula/dsa-visualization.git
 
    # HTTPS:
-   git remote add upstream https://github.com/dsa-visualization/<repo name>.git
+   git remote add upstream https://github.com/NestorNebula/dsa-visualization.git
    ```
 
 4. Install required packages
